@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/miaokeliq/me-ui/issues"
   },
-  "homepage": "https://github.com/miaokeliq/me-ui#readme"
+  "homepage": "https://github.com/miaokeliq/me-ui#readme",
+  "dependencies": {
+    "vue": "^3.2.45"
+  }
 }
