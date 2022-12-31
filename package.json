@@ -1,0 +1,23 @@
+{
+  "name": "me",
+  "version": "0.0.1",
+  "description": " 这是一个ui框架",
+  "main": " ",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miaokeliq/me-ui.git"
+  },
+  "keywords": [
+    "vue",
+    "ui"
+  ],
+  "author": "immkl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miaokeliq/me-ui/issues"
+  },
+  "homepage": "https://github.com/miaokeliq/me-ui#readme"
+}
