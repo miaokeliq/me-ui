@@ -1,3 +1,11 @@
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 .m-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -34,6 +42,9 @@
 }
 .m-button.icon-right > .content {
   order: 1;
+}
+.m-button .loading {
+  animation: spin 2s infinite linear;
 }
 @charset "UTF-8";
 .m-icon {

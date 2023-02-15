@@ -1,6 +1,7 @@
 <template>
   <button class="m-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <m-icon class="icon" v-if="icon" :name="icon" />
+    <m-icon class="icon" v-if="icon" :name="icon"></m-icon>
+    <m-icon name="loading" class="loading"></m-icon>
     <div class="content">
       <slot> </slot>
     </div>
@@ -25,6 +26,15 @@ export default {
 </script>
 
 <style lang="scss">
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .m-button {
   font-size: var(--font-size);
   height: var(--button-height);
@@ -67,6 +77,10 @@ export default {
     > .content {
       order: 1;
     }
+  }
+
+  .loading {
+    animation: spin 2s infinite linear;
   }
 }
 </style>
