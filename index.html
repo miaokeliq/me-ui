@@ -5,11 +5,64 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>me-ui</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      /* 定义变量  */
+      :root {
+        --button-height: 32px;
+        --font-size: 14px;
+        --button-bg: white;
+        --button-active-bg: #eee;
+        --border-radius: 4px;
+        --color: #999;
+        --border-color: #999;
+        --border-color-hover: #666;
+      }
+
+      #app {
+        margin: 80px;
+      }
+
+      body {
+        font-size: var(--font-size);
+      }
+    </style>
+
+    <style>
+      .m-button {
+        font-size: var(--font-size);
+        height: var(--button-height);
+        padding: 0 1em;
+        border-radius: var(--border-radius);
+        border: 1px solid var(--border-color);
+        background: var(--button-bg);
+      }
+
+      .m-button:hover {
+        border-color: var(--border-color-hover);
+      }
+
+      .m-button:active {
+        background-color: var(--button-active-bg);
+      }
+
+      .m-button:focus {
+        outline: none;
+      }
+    </style>
   </head>
   <body>
-    <div id="app">hi</div>
+    <div id="app">
+      <m-button></m-button>
+    </div>
 
-    <script src="./node_modules/vue/dist/vue.global.js"></script>
+    <script src="./node_modules/vue/dist/vue.min.js"></script>
+    <script src="./button.js"></script>
 
     <script>
       new Vue({

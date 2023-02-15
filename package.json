@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/miaokeliq/me-ui#readme",
   "dependencies": {
-    "vue": "^3.2.45"
+    "vue": "^2.7.14",
+    "vue-cli": "^2.9.6"
   }
 }
