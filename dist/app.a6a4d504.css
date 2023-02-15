@@ -57,6 +57,8 @@
 }
 .m-button-group > .m-button {
   border-radius: 0;
+}
+.m-button-group > .m-button:not(:first-child) {
   margin-left: -1px;
 }
 .m-button-group > .m-button:first-child {
