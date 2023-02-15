@@ -23443,7 +23443,18 @@ exports.default = void 0;
 //
 //
 var _default = {
-  props: ["icon", "iconPosition"] // left, right
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+      // 属性检查器，让 其只能接收left和right
+      validator: function validator(value) {
+        console.log(value);
+        return value == "left" || value !== "right";
+      }
+    }
+  }
 };
 exports.default = _default;
         var $51bca3 = exports.default || module.exports;
@@ -23544,7 +23555,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57692" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64793" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

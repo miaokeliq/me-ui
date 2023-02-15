@@ -12,7 +12,18 @@
 
 <script>
 export default {
-  props: ["icon", "iconPosition"], // left, right
+  props: {
+    icon: {},
+    iconPosition: {
+      type: String,
+      default: "left",
+      // 属性检查器，让 其只能接收left和right
+      validator(value) {
+        console.log(value);
+        return value == "left" || value !== "right";
+      },
+    },
+  },
 };
 </script>
 
