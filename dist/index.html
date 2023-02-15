@@ -35,9 +35,15 @@
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <m-button> 按钮 </m-button>
-      <m-button icon="settings" icon-position="right"> 按钮 </m-button>
-      <m-button icon="settings" icon-position="left"> 按钮 </m-button>
+      <m-button :loading="loading1" @click=" loading1 = !loading1">
+        按钮
+      </m-button>
+      <m-button icon="settings" icon-position="right" :loading="loading2" @click=" loading2 = !loading2">
+        按钮
+      </m-button>
+      <m-button icon="settings" icon-position="left" :loading="loading3" @click=" loading3 = !loading3">
+        按钮
+      </m-button>
       <m-icon name="loading"></m-icon>
     </div>
 

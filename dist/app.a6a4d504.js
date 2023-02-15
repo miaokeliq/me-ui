@@ -12268,6 +12268,10 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
 var _default = {
   props: {
     icon: {},
@@ -12279,6 +12283,10 @@ var _default = {
         // value为输入的值
         return value == "left" || value == "right";
       }
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
   }
 };
@@ -12301,13 +12309,23 @@ exports.default = _default;
     {
       staticClass: "m-button",
       class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj),
+      on: {
+        click: function ($event) {
+          return _vm.$emit("click")
+        },
+      },
     },
     [
-      _vm.icon
+      _vm.icon && !_vm.loading
         ? _c("m-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
         : _vm._e(),
       _vm._v(" "),
-      _c("m-icon", { staticClass: "loading", attrs: { name: "loading" } }),
+      _vm.loading
+        ? _c("m-icon", {
+            staticClass: "loading icon",
+            attrs: { name: "loading" },
+          })
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
     ],
@@ -12424,7 +12442,12 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 _vue.default.component("m-button", _button.default);
 _vue.default.component("m-icon", _Icon.default);
 new _vue.default({
-  el: "#app"
+  el: "#app",
+  data: {
+    loading1: false,
+    loading2: true,
+    loading3: true
+  }
 });
 },{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./Icon.vue":"src/Icon.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];

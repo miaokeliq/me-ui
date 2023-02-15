@@ -1,7 +1,11 @@
 <template>
-  <button class="m-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <m-icon class="icon" v-if="icon" :name="icon"></m-icon>
-    <m-icon name="loading" class="loading"></m-icon>
+  <button
+    class="m-button"
+    :class="{ [`icon-${iconPosition}`]: true }"
+    @click="$emit('click')"
+  >
+    <m-icon class="icon" v-if="icon && !loading" :name="icon"></m-icon>
+    <m-icon name="loading" class="loading icon" v-if="loading"></m-icon>
     <div class="content">
       <slot> </slot>
     </div>
@@ -20,6 +24,10 @@ export default {
         // value为输入的值
         return value == "left" || value == "right";
       },
+    },
+    loading: {
+      type: Boolean,
+      default: false,
     },
   },
 };
