@@ -19,7 +19,7 @@
 .m-button:focus {
   outline: none;
 }
-.m-button > .icon {
+.m-button > .m-icon {
   order: 1;
   margin-right: 0.1em;
   margin-left: 0;
@@ -27,11 +27,16 @@
 .m-button > .content {
   order: 2;
 }
-.m-button.icon-right > .icon {
+.m-button.icon-right > .m-icon {
   order: 2;
   margin-left: 0.1em;
   margin-right: 0;
 }
 .m-button.icon-right > .content {
   order: 1;
+}
+@charset "UTF-8";
+.m-icon {
+  width: 1em; /* 相对于当前对象内文本的字体尺寸 */
+  height: 1em;
 }

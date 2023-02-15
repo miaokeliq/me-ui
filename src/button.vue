@@ -1,9 +1,6 @@
 <template>
   <button class="m-button" :class="{ [`icon-${iconPosition}`]: true }">
-    <svg class="icon" v-if="icon">
-      <!-- 使用模板字符串 -->
-      <use v-bind:xlink:href="`#i-${icon}`"></use>
-    </svg>
+    <m-icon v-if="icon" :name="icon"></m-icon>
     <div class="content">
       <slot> </slot>
     </div>
@@ -19,8 +16,8 @@ export default {
       default: "left",
       // 属性检查器，让 其只能接收left和right
       validator(value) {
-        console.log(value);
-        return value == "left" || value !== "right";
+        // value为输入的值
+        return value == "left" || value == "right";
       },
     },
   },
@@ -51,7 +48,7 @@ export default {
     outline: none;
   }
 
-  > .icon {
+  > .m-icon {
     order: 1;
     margin-right: 0.1em;
     margin-left: 0;
@@ -62,7 +59,7 @@ export default {
   }
 
   &.icon-right {
-    > .icon {
+    > .m-icon {
       order: 2;
       margin-left: 0.1em;
       margin-right: 0;
