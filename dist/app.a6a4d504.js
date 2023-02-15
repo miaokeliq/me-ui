@@ -12303,10 +12303,10 @@ exports.default = _default;
     },
     [
       _vm.icon
-        ? _c("m-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        ? _c("m-icon", { staticClass: "icon", attrs: { name: _vm.icon } }, [
+            _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
+          ])
         : _vm._e(),
-      _vm._v(" "),
-      _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
     ],
     1
   )
