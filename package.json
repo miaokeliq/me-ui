@@ -23,5 +23,8 @@
   "dependencies": {
     "vue": "^2.7.14",
     "vue-cli": "^2.9.6"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
   }
 }
