@@ -5,6 +5,10 @@
   border-radius: var(--border-radius);
   border: 1px solid var(--border-color);
   background: var(--button-bg);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
 .m-button:hover {
   border-color: var(--border-color-hover);
@@ -14,4 +18,20 @@
 }
 .m-button:focus {
   outline: none;
+}
+.m-button > .icon {
+  order: 1;
+  margin-right: 0.1em;
+  margin-left: 0;
+}
+.m-button > .content {
+  order: 2;
+}
+.m-button.icon-right > .icon {
+  order: 2;
+  margin-left: 0.1em;
+  margin-right: 0;
+}
+.m-button.icon-right > .content {
+  order: 1;
 }
