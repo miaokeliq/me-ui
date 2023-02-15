@@ -19,7 +19,7 @@
 .m-button:focus {
   outline: none;
 }
-.m-button > .m-icon {
+.m-button > .icon {
   order: 1;
   margin-right: 0.1em;
   margin-left: 0;
@@ -27,7 +27,7 @@
 .m-button > .content {
   order: 2;
 }
-.m-button.icon-right > .m-icon {
+.m-button.icon-right > .icon {
   order: 2;
   margin-left: 0.1em;
   margin-right: 0;

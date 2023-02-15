@@ -12302,7 +12302,9 @@ exports.default = _default;
       class: ((_obj = {}), (_obj["icon-" + _vm.iconPosition] = true), _obj),
     },
     [
-      _vm.icon ? _c("m-icon", { attrs: { name: _vm.icon } }) : _vm._e(),
+      _vm.icon
+        ? _c("m-icon", { staticClass: "icon", attrs: { name: _vm.icon } })
+        : _vm._e(),
       _vm._v(" "),
       _c("div", { staticClass: "content" }, [_vm._t("default")], 2),
     ],
@@ -12446,7 +12448,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51129" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53950" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
