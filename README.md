@@ -16,11 +16,11 @@
    * {
      box-sizing: border-box;
    }
-   
+
    *::before {
      box-sizing: border-box;
    }
-   
+
    *::after {
      box-sizing: border-box;
    }
@@ -43,17 +43,17 @@
    }
    ```
 
-​		IE 15 及以上浏览器都支持此样式
+​ IE 15 及以上浏览器都支持此样式
 
 2. 安装 me
 
-   ``````
+   ```
    npm i --save me-test-20230216
-   ``````
+   ```
 
 3. 引入 me
 
-   ``````js
+   ```js
    import { Button, Icon, ButtonGroup } from "me-test-20230216";
    export default {
      name: "App",
@@ -64,15 +64,7 @@
        "m-buttonGroup": ButtonGroup,
      },
    };
-   ``````
-
-4. 引入 svg symbols
-
-   ```html
-   <script src="//at.alicdn.com/t/c/font_3897843_pn7o10qieme.js"></script>
    ```
-
-
 
 ## 文档
 
