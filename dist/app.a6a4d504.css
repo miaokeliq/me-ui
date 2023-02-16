@@ -1,3 +1,8 @@
+@charset "UTF-8";
+.m-icon {
+  width: 1em; /* 相对于当前对象内文本的字体尺寸 */
+  height: 1em;
+}
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -45,11 +50,6 @@
 }
 .m-button .loading {
   animation: spin 2s infinite linear;
-}
-@charset "UTF-8";
-.m-icon {
-  width: 1em; /* 相对于当前对象内文本的字体尺寸 */
-  height: 1em;
 }
 .m-button-group {
   display: inline-flex;

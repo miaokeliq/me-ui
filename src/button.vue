@@ -13,7 +13,11 @@
 </template>
 
 <script>
+import Icon from "./icon.vue";
 export default {
+  components: {
+    "m-icon": Icon,
+  },
   props: {
     icon: {},
     iconPosition: {
