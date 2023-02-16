@@ -1,4 +1,4 @@
-# me-ui 一个 xxx 主题的 Vue ui 组件库
+# me-ui 一个 Taylor 主题的 Vue UI 组件库
 
 ## 介绍
 
