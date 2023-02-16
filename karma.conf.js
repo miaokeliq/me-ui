@@ -1,3 +1,9 @@
+// karma 主要是用来打开浏览器的，然后打开测试用例， 运行测试用例需要用浏览器
+//   然后引入 mocha   然后就有 describe 和 it 两个函数，这两个函数是mocha提供的 ， 直接挂在window上的全局函数
+//   sinon-chai    sinon用于做fake用的，测试回调   ，  chai提供 expect断言 ，     sinon-chai 会在chai上面添加 callback  、 callbackWith 等api
+//   然后引入测试用例， 就是*.test.js *.css.js
+//  然后需要用reporter  ，就是 终端的打印 样式
+
 module.exports = function (config) {
   config.set({
     // base path that will be used to resolve all patterns(eg. files, exclude)
@@ -42,7 +48,7 @@ module.exports = function (config) {
 
     // start these browser
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ["Chrome"],
+    browsers: ["ChromeHeadless"],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs tests and exits

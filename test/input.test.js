@@ -92,10 +92,18 @@ describe("Input", () => {
         vm.$on(eventName, callback);
         // 触发input 的change 事件
         let event = new Event(eventName);
+        // 破除只读属性
+        Object.defineProperty(event, "target", {
+          value: {
+            value: "hi",
+          },
+          enumerable: true,
+        });
+
         let inputElement = vm.$el.querySelector("input");
         // 手动触发 change 事件
         inputElement.dispatchEvent(event);
-        expect(callback).to.have.been.calledWith(event);
+        expect(callback).to.have.been.calledWith("hi");
       });
     });
   });
