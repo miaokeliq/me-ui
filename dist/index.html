@@ -31,17 +31,29 @@
         font-size: var(--font-size);
       }</style>
 
-    <style></style>
+    <style>.box {
+        margin: 20px;
+      }</style>
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <m-button :loading="loading1" @click=" loading1 = !loading1">
+      <!-- <m-button :loading="loading1" @click=" loading1 = !loading1">
         按钮
       </m-button>
-      <m-button icon="settings" icon-position="right" :loading="loading2" @click=" loading2 = !loading2">
+      <m-button
+        icon="settings"
+        icon-position="right"
+        :loading="loading2"
+        @click=" loading2 = !loading2"
+      >
         按钮
       </m-button>
-      <m-button icon="settings" icon-position="left" :loading="loading3" @click=" loading3 = !loading3">
+      <m-button
+        icon="settings"
+        icon-position="left"
+        :loading="loading3"
+        @click=" loading3 = !loading3"
+      >
         按钮
       </m-button>
       <m-icon name="loading"></m-icon>
@@ -50,9 +62,17 @@
         <m-button icon="left">上一页</m-button>
         <m-button>更多</m-button>
         <m-button icon="right">下一页</m-button>
-      </m-button-group>
+      </m-button-group> -->
 
-      <div id="test"></div>
+      <div class="box">
+        <m-input value="张三" disabled=""></m-input>
+        <m-input value="李四" readonly=""></m-input>
+        <m-input value="王武"></m-input>
+      </div>
+
+      <div class="box">
+        <m-input value="王五" error="姓名不能少于两个字"></m-input>
+      </div>
     </div>
 
     <script src="/app.a6a4d504.js"></script>
