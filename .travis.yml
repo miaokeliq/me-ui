@@ -3,7 +3,6 @@ node_js:
   - “8”
   - "9"
   - "10"
-  - "11"
 addons:
   chrome: stable
 sudo: required
