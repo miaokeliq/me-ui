@@ -12703,7 +12703,143 @@ render._withStripped = true
       
       }
     })();
-},{"./icon.vue":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
+},{"./icon.vue":"src/icon.vue","_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/row.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {};
+exports.default = _default;
+        var $fb59b5 = exports.default || module.exports;
+      
+      if (typeof $fb59b5 === 'function') {
+        $fb59b5 = $fb59b5.options;
+      }
+    
+        /* template */
+        Object.assign($fb59b5, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [_vm._t("default")], 2)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-fb59b5",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$fb59b5', $fb59b5);
+          } else {
+            api.reload('$fb59b5', $fb59b5);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/col.vue":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+//
+//
+//
+//
+//
+//
+var _default = {
+  name: "MeCol",
+  props: {
+    span: {
+      type: [Number, String]
+    }
+  }
+};
+exports.default = _default;
+        var $b2ee5f = exports.default || module.exports;
+      
+      if (typeof $b2ee5f === 'function') {
+        $b2ee5f = $b2ee5f.options;
+      }
+    
+        /* template */
+        Object.assign($b2ee5f, (function () {
+          var render = function () {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "col", class: ["col-" + _vm.span] },
+    [_vm._t("default")],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+          return {
+            render: render,
+            staticRenderFns: staticRenderFns,
+            _compiled: true,
+            _scopeId: "data-v-b2ee5f",
+            functional: undefined
+          };
+        })());
+      
+    /* hot reload */
+    (function () {
+      if (module.hot) {
+        var api = require('vue-hot-reload-api');
+        api.install(require('vue'));
+        if (api.compatible) {
+          module.hot.accept();
+          if (!module.hot.data) {
+            api.createRecord('$b2ee5f', $b2ee5f);
+          } else {
+            api.reload('$b2ee5f', $b2ee5f);
+          }
+        }
+
+        
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+      }
+    })();
+},{"_css_loader":"node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"node_modules/vue-hot-reload-api/dist/index.js","vue":"node_modules/vue/dist/vue.common.js"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
 var _vue = _interopRequireDefault(require("vue"));
@@ -12711,18 +12847,22 @@ var _button = _interopRequireDefault(require("./button.vue"));
 var _icon = _interopRequireDefault(require("./icon.vue"));
 var _buttonGroup = _interopRequireDefault(require("./button-group.vue"));
 var _input = _interopRequireDefault(require("./input.vue"));
+var _row = _interopRequireDefault(require("./row.vue"));
+var _col = _interopRequireDefault(require("./col.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 _vue.default.component("m-button", _button.default);
 _vue.default.component("m-icon", _icon.default);
 _vue.default.component("m-button-group", _buttonGroup.default);
 _vue.default.component("m-input", _input.default);
+_vue.default.component("m-row", _row.default);
+_vue.default.component("m-col", _col.default);
 new _vue.default({
   el: "#app",
   data: {
     loading1: false,
     loading2: true,
     loading3: true,
-    message: 1
+    message: "1"
   },
   methods: {
     inputChange: function inputChange(e) {
@@ -12730,7 +12870,7 @@ new _vue.default({
     }
   }
 });
-},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"vue":"node_modules/vue/dist/vue.common.js","./button.vue":"src/button.vue","./icon.vue":"src/icon.vue","./button-group.vue":"src/button-group.vue","./input.vue":"src/input.vue","./row.vue":"src/row.vue","./col.vue":"src/col.vue"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -12755,7 +12895,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61811" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65246" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
