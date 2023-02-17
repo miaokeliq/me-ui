@@ -121,9 +121,17 @@
 .row[data-v-fb59b5] {
   display: flex;
 }
+.row.align-left[data-v-fb59b5] {
+  justify-content: flex-start;
+}
+.row.align-right[data-v-fb59b5] {
+  justify-content: flex-end;
+}
+.row.align-center[data-v-fb59b5] {
+  justify-content: center;
+}
 .col[data-v-b2ee5f] {
   height: 100px;
-  width: 50%;
 }
 .col.col-1[data-v-b2ee5f] {
   width: 4.1666666667%;

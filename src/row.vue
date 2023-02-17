@@ -1,5 +1,5 @@
 <template>
-  <div class="row" :style="rowStyle">
+  <div class="row" :style="rowStyle" :class="rowClass">
     <slot></slot>
   </div>
 </template>
@@ -11,6 +11,13 @@ export default {
     gutter: {
       type: [Number, String],
     },
+    align: {
+      type: String,
+      validator(value) {
+        // 如果包含 就返回 true， 就合法
+        return ["left", "right", "center"].includes(value);
+      },
+    },
   },
   computed: {
     rowStyle() {
@@ -19,6 +26,10 @@ export default {
         marginLeft: -gutter / 2 + "px",
         marginRight: -gutter / 2 + "px",
       };
+    },
+    rowClass() {
+      let { align } = this;
+      return [align && `align-${align}`];
     },
   },
   mounted() {
@@ -32,5 +43,14 @@ export default {
 <style lang="scss" scoped>
 .row {
   display: flex;
+  &.align-left {
+    justify-content: flex-start;
+  }
+  &.align-right {
+    justify-content: flex-end;
+  }
+  &.align-center {
+    justify-content: center;
+  }
 }
 </style>

@@ -34,10 +34,43 @@
     <style>.box {
         margin: 20px;
       }</style>
+
+    <style>.demobox {
+        height: 50px;
+        background: grey;
+        border: 1px solid red;
+      }</style>
   <link rel="stylesheet" href="/app.a6a4d504.css"></head>
   <body>
     <div id="app">
-      <m-row gutter="20">
+      <m-row class="topbar">
+        <m-col class="demobox" span="9">
+          <m-row align="left">
+            <m-col>1</m-col>
+            <m-col>2</m-col>
+            <m-col>3</m-col>
+            <m-col>4</m-col>
+          </m-row>
+        </m-col>
+        <m-col class="demobox" span="15">
+          <m-row align="right">
+            <m-col>1</m-col>
+            <m-col>2</m-col>
+            <m-col>3</m-col>
+            <m-col>2</m-col>
+            <m-col>3</m-col>
+            <m-col>4</m-col>
+            <m-col>4</m-col>
+          </m-row>
+        </m-col>
+      </m-row>
+      <m-row class="logo-and-search-and-qrcode">
+        <m-col class="demobox" span="4"></m-col>
+        <m-col class="demobox" span="14"></m-col>
+        <m-col class="demobox" span="6"></m-col>
+      </m-row>
+      <!--  <m-row gutter="20">
+
         <m-col> 1</m-col>
         <m-col> 2</m-col>
       </m-row>
@@ -64,7 +97,7 @@
         <m-col span="4"> 1</m-col>
         <m-col span="8" offset="2"> 11</m-col>
         <m-col span="8" offset="2"> 11</m-col>
-      </m-row>
+      </m-row> -->
       <!-- <m-button :loading="loading1" @click=" loading1 = !loading1">
         按钮
       </m-button>
@@ -92,9 +125,9 @@
         <m-button icon="right">下一页</m-button>
       </m-button-group> -->
 
-      <div class="box">
-        <m-input value="张三" disabled=""></m-input>
-        <m-input value="李四" readonly=""></m-input>
+      <!--   <div class="box">
+        <m-input value="张三" disabled></m-input>
+        <m-input value="李四" readonly></m-input>
         <m-input v-model="message"></m-input>
         {{message}}
       </div>
@@ -105,7 +138,7 @@
 
       <div class="box">
         <m-input value="王五" @change="inputChange"></m-input>
-      </div>
+      </div> -->
     </div>
 
     <script src="/app.a6a4d504.js"></script>
