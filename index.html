@@ -41,7 +41,7 @@
   </head>
   <body>
     <div id="app">
-      <m-row>
+      <m-row gutter="20">
         <m-col> 1</m-col>
         <m-col> 2</m-col>
       </m-row>
@@ -58,11 +58,16 @@
       </m-row>
       <m-row>
         <m-col span="2"> 1</m-col>
-        <m-col span="22"> 11</m-col>
+        <m-col span="19" offset="3">11 11</m-col>
       </m-row>
       <m-row>
         <m-col span="4"> 1</m-col>
-        <m-col span="20"> 11</m-col>
+        <m-col span="18" offset="2"> 11</m-col>
+      </m-row>
+      <m-row>
+        <m-col span="4"> 1</m-col>
+        <m-col span="8" offset="2"> 11</m-col>
+        <m-col span="8" offset="2"> 11</m-col>
       </m-row>
       <!-- <m-button :loading="loading1" @click=" loading1 = !loading1">
         按钮

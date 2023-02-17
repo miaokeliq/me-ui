@@ -12716,7 +12716,32 @@ exports.default = void 0;
 //
 //
 //
-var _default = {};
+//
+//
+//
+var _default = {
+  name: "MeRow",
+  props: {
+    gutter: {
+      type: [Number, String]
+    }
+  },
+  created: function created() {
+    // this.$children;
+    // 没有儿子
+  },
+  mounted: function mounted() {
+    var _this = this;
+    console.log(this.$children);
+    this.$children.forEach(function (vm) {
+      vm.gutter = _this.gutter;
+    });
+  }
+};
+/* var div = document.createElement("div"); // created
+var childDiv = document.createElement('div')
+div.appendChild((childDiv)) // child mounted 
+document.body.appendChild(div); // mounted */
 exports.default = _default;
         var $fb59b5 = exports.default || module.exports;
       
@@ -12730,7 +12755,18 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [_vm._t("default")], 2)
+  return _c(
+    "div",
+    {
+      staticClass: "row",
+      style: {
+        marginLeft: -_vm.gutter / 2 + "px",
+        marginRight: -_vm.gutter / 2 + "px",
+      },
+    },
+    [_vm._t("default")],
+    2
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -12778,12 +12814,26 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
 var _default = {
   name: "MeCol",
   props: {
     span: {
       type: [Number, String]
+    },
+    offset: {
+      type: [Number, String]
     }
+  },
+  data: function data() {
+    return {
+      gutter: 0
+    };
   }
 };
 exports.default = _default;
@@ -12801,9 +12851,25 @@ exports.default = _default;
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "col", class: ["col-" + _vm.span] },
-    [_vm._t("default")],
-    2
+    {
+      staticClass: "col",
+      class: [
+        _vm.span && "col-" + _vm.span,
+        _vm.offset && "offset-" + _vm.offset,
+      ],
+      style: {
+        paddingLeft: _vm.gutter / 2 + "px",
+        paddingRight: _vm.gutter / 2 + "px",
+      },
+    },
+    [
+      _c(
+        "div",
+        { staticStyle: { border: "1px solid green", height: "100px" } },
+        [_vm._t("default")],
+        2
+      ),
+    ]
   )
 }
 var staticRenderFns = []
