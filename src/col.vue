@@ -24,10 +24,6 @@ export default {
     offset: {
       type: [Number, String],
     },
-    phone: {
-      type: Object,
-      validator,
-    },
     pad: {
       type: Object,
       validator,
@@ -79,14 +75,10 @@ export default {
       };
     },
     colClass() {
-      let { span, offset, phone, pad, narrowPc, pc, widePc } = this;
+      let { span, offset, pad, narrowPc, pc, widePc } = this;
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
-        ...(phone && [
-          `col-phone-${phone.span}`,
-          `offset-phone-${phone.offset}`,
-        ]),
         ...(pad && [`col-pad-${pad.span}`, `offset-pad-${pad.offset}`]),
         ...(narrowPc && [
           `col-narrowPc-${narrowPc.span}`,
@@ -119,21 +111,6 @@ export default {
   @for $n from 1 through 24 {
     &.#{$class-prefix}#{$n} {
       margin-left: calc($n / 24) * 100%;
-    }
-  }
-  @media (max-width: 576px) {
-    $class-prefix: col-phone;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        width: calc($n / 24) * 100%;
-      }
-    }
-
-    $class-prefix: offset-phone;
-    @for $n from 1 through 24 {
-      &.#{$class-prefix}#{$n} {
-        margin-left: calc($n / 24) * 100%;
-      }
     }
   }
   @media (min-width: 577px) and (max-width: 768px) {

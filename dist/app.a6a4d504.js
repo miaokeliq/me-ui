@@ -12843,10 +12843,6 @@ var _default = {
     offset: {
       type: [Number, String]
     },
-    phone: {
-      type: Object,
-      validator: validator
-    },
     pad: {
       type: Object,
       validator: validator
@@ -12899,12 +12895,11 @@ var _default = {
     colClass: function colClass() {
       var span = this.span,
         offset = this.offset,
-        phone = this.phone,
         pad = this.pad,
         narrowPc = this.narrowPc,
         pc = this.pc,
         widePc = this.widePc;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(phone && ["col-phone-".concat(phone.span), "offset-phone-".concat(phone.offset)]), _toConsumableArray(pad && ["col-pad-".concat(pad.span), "offset-pad-".concat(pad.offset)]), _toConsumableArray(narrowPc && ["col-narrowPc-".concat(narrowPc.span), "offset-narrowPc-".concat(narrowPc.offset)]), _toConsumableArray(pc && ["col-pc-".concat(pc.span), "offset-pc-".concat(pc.offset)]), _toConsumableArray(widePc && ["col-widePc-".concat(widePc.span), "offset-widePc-".concat(widePc.offset)]));
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pad && ["col-pad-".concat(pad.span), "offset-pad-".concat(pad.offset)]), _toConsumableArray(narrowPc && ["col-narrowPc-".concat(narrowPc.span), "offset-narrowPc-".concat(narrowPc.offset)]), _toConsumableArray(pc && ["col-pc-".concat(pc.span), "offset-pc-".concat(pc.offset)]), _toConsumableArray(widePc && ["col-widePc-".concat(widePc.span), "offset-widePc-".concat(widePc.offset)]));
     }
   }
 };
