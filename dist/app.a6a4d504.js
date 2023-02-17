@@ -12810,12 +12810,30 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 //
 //
 //
 //
 //
 //
+
+var validator = function validator(value) {
+  var keys = Object.key(value);
+  var valid = true;
+  // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
+  keys.forEach(function (key) {
+    if (!["span", "offset"].includes(key)) {
+      valid = false;
+    }
+  });
+  return valid;
+};
 var _default = {
   name: "MeCol",
   props: {
@@ -12824,6 +12842,46 @@ var _default = {
     },
     offset: {
       type: [Number, String]
+    },
+    phone: {
+      type: Object,
+      validator: validator
+    },
+    pad: {
+      type: Object,
+      validator: validator
+    },
+    narrowPc: {
+      type: Object,
+      validator: validator
+    },
+    pc: {
+      type: Object,
+      validator: function validator(value) {
+        var keys = Object.key(value);
+        var valid = true;
+        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
+        keys.forEach(function (key) {
+          if (!["span", "offset"].includes(key)) {
+            valid = false;
+          }
+        });
+        return valid;
+      }
+    },
+    widePc: {
+      type: Object,
+      validator: function validator(value) {
+        var keys = Object.key(value);
+        var valid = true;
+        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
+        keys.forEach(function (key) {
+          if (!["span", "offset"].includes(key)) {
+            valid = false;
+          }
+        });
+        return valid;
+      }
     }
   },
   data: function data() {
@@ -12840,8 +12898,13 @@ var _default = {
     },
     colClass: function colClass() {
       var span = this.span,
-        offset = this.offset;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)];
+        offset = this.offset,
+        phone = this.phone,
+        pad = this.pad,
+        narrowPc = this.narrowPc,
+        pc = this.pc,
+        widePc = this.widePc;
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(phone && ["col-phone-".concat(phone.span), "offset-phone-".concat(phone.offset)]), _toConsumableArray(pad && ["col-pad-".concat(pad.span), "offset-pad-".concat(pad.offset)]), _toConsumableArray(narrowPc && ["col-narrowPc-".concat(narrowPc.span), "offset-narrowPc-".concat(narrowPc.offset)]), _toConsumableArray(pc && ["col-pc-".concat(pc.span), "offset-pc-".concat(pc.offset)]), _toConsumableArray(widePc && ["col-widePc-".concat(widePc.span), "offset-widePc-".concat(widePc.offset)]));
     }
   }
 };
