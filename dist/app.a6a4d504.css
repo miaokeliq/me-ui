@@ -865,11 +865,26 @@
 .layout[data-v-c99d9e] {
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
   flex-grow: 1;
 }
 .layout.hasSider[data-v-c99d9e] {
   flex-direction: row;
+}
+.sider[data-v-24af7c] {
+  position: relative;
+}
+.sider > button[data-v-24af7c] {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.slide-enter-active[data-v-24af7c],
+.slide-leave-active[data-v-24af7c] {
+  transition: all 0.5s;
+}
+.slide-enter[data-v-24af7c],
+.slide-leave-to[data-v-24af7c] {
+  margin-left: -200px;
 }
 .content[data-v-1f38ba] {
   flex-grow: 1;

@@ -24,21 +24,16 @@
       }
 
       #app {
-        margin: 80px;
+        margin: 0px;
       }
 
       body {
         font-size: var(--font-size);
       }</style>
 
-    <style>.box {
-        margin: 20px;
-      }
-
-      .demo {
+    <style>.demo {
         background: #ddd;
         border: 1px solid #666;
-        height: 100px;
       }</style>
 
     <style>.demo {
@@ -48,12 +43,12 @@
   <body>
     <div id="app">
       <m-layout style="height: 100vh">
-        <m-header class="demo">header</m-header>
+        <m-sider class="demo">sider</m-sider>
         <m-layout>
-          <m-sider class="demo">sider</m-sider>
+          <m-header class="demo">header</m-header>
           <m-content class="demo">content</m-content>
+          <m-footer class="demo">footer</m-footer>
         </m-layout>
-        <m-footer class="demo">footer</m-footer>
       </m-layout>
     </div>
 
