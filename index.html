@@ -25,7 +25,7 @@
       }
 
       #app {
-        margin: 0px;
+        margin: 20px;
       }
 
       body {
@@ -33,29 +33,13 @@
       }
     </style>
 
-    <style>
-      .demo {
-        background: #ddd;
-        border: 1px solid #666;
-      }
-    </style>
+    <style></style>
 
-    <style>
-      .demo {
-        border: 1px solid black;
-      }
-    </style>
+    <style></style>
   </head>
   <body>
     <div id="app">
-      <m-layout style="height: 100vh">
-        <m-sider class="demo">sider</m-sider>
-        <m-layout>
-          <m-header class="demo">header</m-header>
-          <m-content class="demo">content</m-content>
-          <m-footer class="demo">footer</m-footer>
-        </m-layout>
-      </m-layout>
+      <m-button icon="left" @click="showToast">按钮</m-button>
     </div>
 
     <script src="./src/app.js"></script>

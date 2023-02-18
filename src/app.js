@@ -10,6 +10,7 @@ import Header from "./header.vue";
 import Sider from "./sider.vue";
 import Content from "./content.vue";
 import Footer from "./footer.vue";
+import plugin from "./plugin";
 Vue.component("m-button", Button);
 Vue.component("m-icon", Icon);
 Vue.component("m-button-group", ButtonGroup);
@@ -21,7 +22,7 @@ Vue.component("m-header", Header);
 Vue.component("m-sider", Sider);
 Vue.component("m-content", Content);
 Vue.component("m-footer", Footer);
-
+Vue.use(plugin); // 掉用 plugin 里面的install方法
 new Vue({
   el: "#app",
   data: {
@@ -33,6 +34,9 @@ new Vue({
   methods: {
     inputChange(e) {
       console.log(e.target.value);
+    },
+    showToast() {
+      this.$toast("我是缪克立");
     },
   },
 });

@@ -889,3 +889,17 @@
 .content[data-v-1f38ba] {
   flex-grow: 1;
 }
+.toast[data-v-49b4bb] {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  font-size: 14px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 0 16px;
+}
