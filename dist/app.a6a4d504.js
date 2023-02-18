@@ -13344,6 +13344,8 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 //
 //
 //
+//
+//
 // 写轮子要考虑一个问题： 小概率事件必将发生
 /* import Vue from "vue";
 Vue.prototype.$toast = function () {
@@ -13406,7 +13408,7 @@ var _default2 = {
       var _this2 = this;
       // 异步问题，要放到下一个事件队列后再弄
       this.$nextTick(function () {
-        _this2.$refs.line.style.height = "".concat(_this2.$refs.wrapper.getBoundingClientRect().height, "px");
+        _this2.$refs.line.style.height = "".concat(_this2.$refs.toast.getBoundingClientRect().height, "px");
       });
     },
     close: function close() {
@@ -13435,10 +13437,8 @@ exports.default = _default2;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
-    [
+  return _c("div", { staticClass: "wrapper", class: _vm.toastClasses }, [
+    _c("div", { ref: "toast", staticClass: "toast" }, [
       _c(
         "div",
         { staticClass: "message" },
@@ -13458,11 +13458,11 @@ exports.default = _default2;
         ? _c(
             "span",
             { staticClass: "close", on: { click: _vm.onClickClose } },
-            [_vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  ")]
+            [_vm._v("\n      " + _vm._s(_vm.closeButton.text) + "\n    ")]
           )
         : _vm._e(),
-    ]
-  )
+    ]),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
