@@ -133,7 +133,6 @@
 }
 .col[data-v-b2ee5f] {
   height: 100px;
-  width: 50%;
 }
 .col.col-1[data-v-b2ee5f] {
   width: 4.1666666667%;
@@ -279,153 +278,153 @@
 .col.offset-24[data-v-b2ee5f] {
   margin-left: 100%;
 }
-@media (min-width: 577px) and (max-width: 768px) {
-.col.col-pad1[data-v-b2ee5f] {
+@media (min-width: 577px) {
+.col.col-pad-1[data-v-b2ee5f] {
     width: 4.1666666667%;
 }
-.col.col-pad2[data-v-b2ee5f] {
+.col.col-pad-2[data-v-b2ee5f] {
     width: 8.3333333333%;
 }
-.col.col-pad3[data-v-b2ee5f] {
+.col.col-pad-3[data-v-b2ee5f] {
     width: 12.5%;
 }
-.col.col-pad4[data-v-b2ee5f] {
+.col.col-pad-4[data-v-b2ee5f] {
     width: 16.6666666667%;
 }
-.col.col-pad5[data-v-b2ee5f] {
+.col.col-pad-5[data-v-b2ee5f] {
     width: 20.8333333333%;
 }
-.col.col-pad6[data-v-b2ee5f] {
+.col.col-pad-6[data-v-b2ee5f] {
     width: 25%;
 }
-.col.col-pad7[data-v-b2ee5f] {
+.col.col-pad-7[data-v-b2ee5f] {
     width: 29.1666666667%;
 }
-.col.col-pad8[data-v-b2ee5f] {
+.col.col-pad-8[data-v-b2ee5f] {
     width: 33.3333333333%;
 }
-.col.col-pad9[data-v-b2ee5f] {
+.col.col-pad-9[data-v-b2ee5f] {
     width: 37.5%;
 }
-.col.col-pad10[data-v-b2ee5f] {
+.col.col-pad-10[data-v-b2ee5f] {
     width: 41.6666666667%;
 }
-.col.col-pad11[data-v-b2ee5f] {
+.col.col-pad-11[data-v-b2ee5f] {
     width: 45.8333333333%;
 }
-.col.col-pad12[data-v-b2ee5f] {
+.col.col-pad-12[data-v-b2ee5f] {
     width: 50%;
 }
-.col.col-pad13[data-v-b2ee5f] {
+.col.col-pad-13[data-v-b2ee5f] {
     width: 54.1666666667%;
 }
-.col.col-pad14[data-v-b2ee5f] {
+.col.col-pad-14[data-v-b2ee5f] {
     width: 58.3333333333%;
 }
-.col.col-pad15[data-v-b2ee5f] {
+.col.col-pad-15[data-v-b2ee5f] {
     width: 62.5%;
 }
-.col.col-pad16[data-v-b2ee5f] {
+.col.col-pad-16[data-v-b2ee5f] {
     width: 66.6666666667%;
 }
-.col.col-pad17[data-v-b2ee5f] {
+.col.col-pad-17[data-v-b2ee5f] {
     width: 70.8333333333%;
 }
-.col.col-pad18[data-v-b2ee5f] {
+.col.col-pad-18[data-v-b2ee5f] {
     width: 75%;
 }
-.col.col-pad19[data-v-b2ee5f] {
+.col.col-pad-19[data-v-b2ee5f] {
     width: 79.1666666667%;
 }
-.col.col-pad20[data-v-b2ee5f] {
+.col.col-pad-20[data-v-b2ee5f] {
     width: 83.3333333333%;
 }
-.col.col-pad21[data-v-b2ee5f] {
+.col.col-pad-21[data-v-b2ee5f] {
     width: 87.5%;
 }
-.col.col-pad22[data-v-b2ee5f] {
+.col.col-pad-22[data-v-b2ee5f] {
     width: 91.6666666667%;
 }
-.col.col-pad23[data-v-b2ee5f] {
+.col.col-pad-23[data-v-b2ee5f] {
     width: 95.8333333333%;
 }
-.col.col-pad24[data-v-b2ee5f] {
+.col.col-pad-24[data-v-b2ee5f] {
     width: 100%;
 }
-.col.offset-pad1[data-v-b2ee5f] {
+.col.offset-pad-1[data-v-b2ee5f] {
     margin-left: 4.1666666667%;
 }
-.col.offset-pad2[data-v-b2ee5f] {
+.col.offset-pad-2[data-v-b2ee5f] {
     margin-left: 8.3333333333%;
 }
-.col.offset-pad3[data-v-b2ee5f] {
+.col.offset-pad-3[data-v-b2ee5f] {
     margin-left: 12.5%;
 }
-.col.offset-pad4[data-v-b2ee5f] {
+.col.offset-pad-4[data-v-b2ee5f] {
     margin-left: 16.6666666667%;
 }
-.col.offset-pad5[data-v-b2ee5f] {
+.col.offset-pad-5[data-v-b2ee5f] {
     margin-left: 20.8333333333%;
 }
-.col.offset-pad6[data-v-b2ee5f] {
+.col.offset-pad-6[data-v-b2ee5f] {
     margin-left: 25%;
 }
-.col.offset-pad7[data-v-b2ee5f] {
+.col.offset-pad-7[data-v-b2ee5f] {
     margin-left: 29.1666666667%;
 }
-.col.offset-pad8[data-v-b2ee5f] {
+.col.offset-pad-8[data-v-b2ee5f] {
     margin-left: 33.3333333333%;
 }
-.col.offset-pad9[data-v-b2ee5f] {
+.col.offset-pad-9[data-v-b2ee5f] {
     margin-left: 37.5%;
 }
-.col.offset-pad10[data-v-b2ee5f] {
+.col.offset-pad-10[data-v-b2ee5f] {
     margin-left: 41.6666666667%;
 }
-.col.offset-pad11[data-v-b2ee5f] {
+.col.offset-pad-11[data-v-b2ee5f] {
     margin-left: 45.8333333333%;
 }
-.col.offset-pad12[data-v-b2ee5f] {
+.col.offset-pad-12[data-v-b2ee5f] {
     margin-left: 50%;
 }
-.col.offset-pad13[data-v-b2ee5f] {
+.col.offset-pad-13[data-v-b2ee5f] {
     margin-left: 54.1666666667%;
 }
-.col.offset-pad14[data-v-b2ee5f] {
+.col.offset-pad-14[data-v-b2ee5f] {
     margin-left: 58.3333333333%;
 }
-.col.offset-pad15[data-v-b2ee5f] {
+.col.offset-pad-15[data-v-b2ee5f] {
     margin-left: 62.5%;
 }
-.col.offset-pad16[data-v-b2ee5f] {
+.col.offset-pad-16[data-v-b2ee5f] {
     margin-left: 66.6666666667%;
 }
-.col.offset-pad17[data-v-b2ee5f] {
+.col.offset-pad-17[data-v-b2ee5f] {
     margin-left: 70.8333333333%;
 }
-.col.offset-pad18[data-v-b2ee5f] {
+.col.offset-pad-18[data-v-b2ee5f] {
     margin-left: 75%;
 }
-.col.offset-pad19[data-v-b2ee5f] {
+.col.offset-pad-19[data-v-b2ee5f] {
     margin-left: 79.1666666667%;
 }
-.col.offset-pad20[data-v-b2ee5f] {
+.col.offset-pad-20[data-v-b2ee5f] {
     margin-left: 83.3333333333%;
 }
-.col.offset-pad21[data-v-b2ee5f] {
+.col.offset-pad-21[data-v-b2ee5f] {
     margin-left: 87.5%;
 }
-.col.offset-pad22[data-v-b2ee5f] {
+.col.offset-pad-22[data-v-b2ee5f] {
     margin-left: 91.6666666667%;
 }
-.col.offset-pad23[data-v-b2ee5f] {
+.col.offset-pad-23[data-v-b2ee5f] {
     margin-left: 95.8333333333%;
 }
-.col.offset-pad24[data-v-b2ee5f] {
+.col.offset-pad-24[data-v-b2ee5f] {
     margin-left: 100%;
 }
 }
-@media (min-width: 769px) and (max-width: 992px) {
+@media (min-width: 769px) {
 .col.col-narrow-pc-1[data-v-b2ee5f] {
     width: 4.1666666667%;
 }
@@ -571,7 +570,7 @@
     margin-left: 100%;
 }
 }
-@media (min-width: 993px) and (max-width: 1200px) {
+@media (min-width: 993px) {
 .col.col-pc-1[data-v-b2ee5f] {
     width: 4.1666666667%;
 }

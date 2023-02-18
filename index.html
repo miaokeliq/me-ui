@@ -37,81 +37,35 @@
       .box {
         margin: 20px;
       }
+
+      .demo {
+        background: #ddd;
+        border: 1px solid #666;
+        height: 100px;
+      }
     </style>
 
     <style></style>
   </head>
   <body>
     <div id="app">
-      <m-row gutter="20">
-        <m-col> 1</m-col>
-        <m-col> 2</m-col>
-      </m-row>
       <m-row>
-        <m-col> 1</m-col>
-        <m-col> 2</m-col>
-        <m-col> 3</m-col>
+        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
+          <div class="demo"></div>
+        </m-col>
+        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
+          <div class="demo"></div>
+        </m-col>
+        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
+          <div class="demo"></div>
+        </m-col>
+        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
+          <div class="demo"></div>
+        </m-col>
+        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
+          <div class="demo"></div>
+        </m-col>
       </m-row>
-      <m-row>
-        <m-col> 1</m-col>
-        <m-col> 2</m-col>
-        <m-col> 3</m-col>
-        <m-col> 4</m-col>
-      </m-row>
-      <m-row>
-        <m-col span="2"> 1</m-col>
-        <m-col span="19" offset="3">11 11</m-col>
-      </m-row>
-      <m-row>
-        <m-col span="4"> 1</m-col>
-        <m-col span="18" offset="2"> 11</m-col>
-      </m-row>
-      <m-row>
-        <m-col span="4"> 1</m-col>
-        <m-col span="8" offset="2"> 11</m-col>
-        <m-col span="8" offset="2"> 11</m-col>
-      </m-row>
-      <!-- <m-button :loading="loading1" @click=" loading1 = !loading1">
-        按钮
-      </m-button>
-      <m-button
-        icon="settings"
-        icon-position="right"
-        :loading="loading2"
-        @click=" loading2 = !loading2"
-      >
-        按钮
-      </m-button>
-      <m-button
-        icon="settings"
-        icon-position="left"
-        :loading="loading3"
-        @click=" loading3 = !loading3"
-      >
-        按钮
-      </m-button>
-      <m-icon name="loading"></m-icon>
-
-      <m-button-group>
-        <m-button icon="left">上一页</m-button>
-        <m-button>更多</m-button>
-        <m-button icon="right">下一页</m-button>
-      </m-button-group> -->
-
-      <!--   <div class="box">
-        <m-input value="张三" disabled></m-input>
-        <m-input value="李四" readonly></m-input>
-        <m-input v-model="message"></m-input>
-        {{message}}
-      </div>
-
-      <div class="box">
-        <m-input value="王五" error="姓名不能少于两个字"></m-input>
-      </div>
-
-      <div class="box">
-        <m-input value="王五" @change="inputChange"></m-input>
-      </div> -->
     </div>
 
     <script src="./src/app.js"></script>

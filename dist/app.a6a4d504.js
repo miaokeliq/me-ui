@@ -12824,7 +12824,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 
 var validator = function validator(value) {
-  var keys = Object.key(value);
+  var keys = Object.keys(value);
   var valid = true;
   // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
   keys.forEach(function (key) {
@@ -12854,7 +12854,7 @@ var _default = {
     pc: {
       type: Object,
       validator: function validator(value) {
-        var keys = Object.key(value);
+        var keys = Object.keys(value);
         var valid = true;
         // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
         keys.forEach(function (key) {
@@ -12868,7 +12868,7 @@ var _default = {
     widePc: {
       type: Object,
       validator: function validator(value) {
-        var keys = Object.key(value);
+        var keys = Object.keys(value);
         var valid = true;
         // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
         keys.forEach(function (key) {
@@ -12899,7 +12899,7 @@ var _default = {
         narrowPc = this.narrowPc,
         pc = this.pc,
         widePc = this.widePc;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pad && ["col-pad-".concat(pad.span), "offset-pad-".concat(pad.offset)]), _toConsumableArray(narrowPc && ["col-narrowPc-".concat(narrowPc.span), "offset-narrowPc-".concat(narrowPc.offset)]), _toConsumableArray(pc && ["col-pc-".concat(pc.span), "offset-pc-".concat(pc.offset)]), _toConsumableArray(widePc && ["col-widePc-".concat(widePc.span), "offset-widePc-".concat(widePc.offset)]));
+      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pad ? ["col-pad-".concat(pad.span)] : []), _toConsumableArray(narrowPc ? ["col-narrow-pc-".concat(narrowPc.span)] : []), _toConsumableArray(pc ? ["col-pc-".concat(pc.span)] : []), _toConsumableArray(widePc ? ["col-wide-pc-".concat(widePc.span)] : []));
     }
   }
 };
@@ -13012,7 +13012,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65246" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50945" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

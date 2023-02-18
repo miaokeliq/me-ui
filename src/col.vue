@@ -6,7 +6,7 @@
 
 <script>
 let validator = (value) => {
-  let keys = Object.key(value);
+  let keys = Object.keys(value);
   let valid = true;
   // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
   keys.forEach((key) => {
@@ -36,7 +36,7 @@ export default {
     pc: {
       type: Object,
       validator(value) {
-        let keys = Object.key(value);
+        let keys = Object.keys(value);
         let valid = true;
         // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
         keys.forEach((key) => {
@@ -50,7 +50,7 @@ export default {
     widePc: {
       type: Object,
       validator(value) {
-        let keys = Object.key(value);
+        let keys = Object.keys(value);
         let valid = true;
         // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
         keys.forEach((key) => {
@@ -79,16 +79,10 @@ export default {
       return [
         span && `col-${span}`,
         offset && `offset-${offset}`,
-        ...(pad && [`col-pad-${pad.span}`, `offset-pad-${pad.offset}`]),
-        ...(narrowPc && [
-          `col-narrowPc-${narrowPc.span}`,
-          `offset-narrowPc-${narrowPc.offset}`,
-        ]),
-        ...(pc && [`col-pc-${pc.span}`, `offset-pc-${pc.offset}`]),
-        ...(widePc && [
-          `col-widePc-${widePc.span}`,
-          `offset-widePc-${widePc.offset}`,
-        ]),
+        ...(pad ? [`col-pad-${pad.span}`] : []),
+        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
+        ...(pc ? [`col-pc-${pc.span}`] : []),
+        ...(widePc ? [`col-wide-pc-${widePc.span}`] : []),
       ];
     },
   },
@@ -98,7 +92,7 @@ export default {
 <style scoped lang="scss">
 .col {
   height: 100px;
-  width: 50%;
+
   $class-prefix: col-;
 
   @for $n from 1 through 24 {
@@ -113,22 +107,22 @@ export default {
       margin-left: calc($n / 24) * 100%;
     }
   }
-  @media (min-width: 577px) and (max-width: 768px) {
-    $class-prefix: col-pad;
+  @media (min-width: 577px) {
+    $class-prefix: col-pad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         width: calc($n / 24) * 100%;
       }
     }
 
-    $class-prefix: offset-pad;
+    $class-prefix: offset-pad-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
         margin-left: calc($n / 24) * 100%;
       }
     }
   }
-  @media (min-width: 769px) and (max-width: 992px) {
+  @media (min-width: 769px) {
     $class-prefix: col-narrow-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
@@ -143,7 +137,7 @@ export default {
       }
     }
   }
-  @media (min-width: 993px) and (max-width: 1200px) {
+  @media (min-width: 993px) {
     $class-prefix: col-pc-;
     @for $n from 1 through 24 {
       &.#{$class-prefix}#{$n} {
