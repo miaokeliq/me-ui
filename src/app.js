@@ -36,7 +36,17 @@ new Vue({
       console.log(e.target.value);
     },
     showToast() {
-      this.$toast("我是缪克立");
+      this.$toast(
+        "我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立",
+        {
+          closeButton: {
+            text: "关闭",
+            callback() {
+              console.log("用户说他知道了");
+            },
+          },
+        }
+      );
     },
   },
 });

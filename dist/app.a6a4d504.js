@@ -13333,16 +13333,78 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 // 写轮子要考虑一个问题： 小概率事件必将发生
-/* import Vue from "vue"; 
+/* import Vue from "vue";
 Vue.prototype.$toast = function () {
   // 侵入性太强，不好
   console.log("我是toast");
 }; */
-var _default = {
-  name: "MeToast"
+// 构造组件的选项
+var _default2 = {
+  name: "MeToast",
+  props: {
+    autoClose: {
+      type: Boolean,
+      default: true
+    },
+    autoCloseDelay: {
+      type: Number,
+      default: 50
+    },
+    closeButton: {
+      type: Object,
+      default: function _default() {
+        return {
+          text: "关闭",
+          callback: undefined
+        };
+      }
+    },
+    enableHtml: {
+      type: Boolean,
+      default: false
+    }
+  },
+  mounted: function mounted() {
+    this.updateStyles();
+    this.execAutoClose();
+  },
+  methods: {
+    execAutoClose: function execAutoClose() {
+      var _this = this;
+      if (this.autoClose) {
+        setTimeout(function () {
+          _this.close();
+        }, this.autoCloseDelay * 1000);
+      }
+    },
+    updateStyles: function updateStyles() {
+      var _this2 = this;
+      // 异步问题，要放到下一个事件队列后再弄
+      this.$nextTick(function () {
+        _this2.$refs.line.style.height = "".concat(_this2.$refs.wrapper.getBoundingClientRect().height, "px");
+      });
+    },
+    close: function close() {
+      this.$el.remove(); // 把元素从body里面拿出来
+      this.$destroy();
+    },
+    onClickClose: function onClickClose() {
+      this.close();
+      if (this.closeButton && typeof this.closeButton.callback === "function") {
+        this.closeButton.callback();
+      }
+    }
+  }
 };
-exports.default = _default;
+exports.default = _default2;
         var $49b4bb = exports.default || module.exports;
       
       if (typeof $49b4bb === 'function') {
@@ -13355,7 +13417,28 @@ exports.default = _default;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "toast" }, [_vm._t("default")], 2)
+  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
+    _c(
+      "div",
+      { staticClass: "message" },
+      [
+        !_vm.enableHtml
+          ? _vm._t("default")
+          : _c("div", {
+              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
+            }),
+      ],
+      2
+    ),
+    _vm._v(" "),
+    _c("div", { ref: "line", staticClass: "line" }),
+    _vm._v(" "),
+    _vm.closeButton
+      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
+          _vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  "),
+        ])
+      : _vm._e(),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13401,10 +13484,14 @@ var _toast = _interopRequireDefault(require("./toast.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message) {
+    Vue.prototype.$toast = function (message, toastOption) {
       // 生成一个toast组件，然后放到body里面
       var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor();
+      var toast = new Constructor({
+        propsData: {
+          closeButton: toastOption.closeButton
+        }
+      });
       toast.$slots.default = [message];
       toast.$mount();
       document.body.appendChild(toast.$el);
@@ -13454,7 +13541,14 @@ new _vue.default({
       console.log(e.target.value);
     },
     showToast: function showToast() {
-      this.$toast("我是缪克立");
+      this.$toast("我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立", {
+        closeButton: {
+          text: "关闭",
+          callback: function callback() {
+            console.log("用户说他知道了");
+          }
+        }
+      });
     }
   }
 });
@@ -13483,7 +13577,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62665" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59435" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
