@@ -13505,24 +13505,39 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _toast = _interopRequireDefault(require("./toast.vue"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var currentToast;
 var _default = {
   install: function install(Vue, options) {
-    Vue.prototype.$toast = function (message, toastOption) {
-      // 生成一个toast组件，然后放到body里面
-      var Constructor = Vue.extend(_toast.default);
-      var toast = new Constructor({
-        propsData: {
-          position: toastOption.position,
-          closeButton: toastOption.closeButton
-        }
+    Vue.prototype.$toast = function (message, toastOptions) {
+      if (currentToast) {
+        currentToast.close();
+      }
+      currentToast = createToast({
+        Vue: Vue,
+        message: message,
+        propsData: toastOptions
       });
-      toast.$slots.default = [message];
-      toast.$mount();
-      document.body.appendChild(toast.$el);
     };
   }
 };
+/*
+ * helper
+ * */
 exports.default = _default;
+function createToast(_ref) {
+  var Vue = _ref.Vue,
+    message = _ref.message,
+    propsData = _ref.propsData;
+  // 生成一个toast组件，然后放到body里面
+  var Constructor = Vue.extend(_toast.default);
+  var toast = new Constructor({
+    propsData: propsData
+  });
+  toast.$slots.default = [message];
+  toast.$mount();
+  document.body.appendChild(toast.$el);
+  return toast;
+}
 },{"./toast.vue":"src/toast.vue"}],"src/app.js":[function(require,module,exports) {
 "use strict";
 
@@ -13602,7 +13617,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59435" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61705" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
