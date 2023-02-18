@@ -12726,7 +12726,7 @@ var _default = {
       type: String,
       validator: function validator(value) {
         // 如果包含 就返回 true， 就合法
-        return ["left", "right", "center"].includes(value);
+        return ["left", "right", "center"].indexOf(value) >= 0;
       }
     }
   },
@@ -12828,7 +12828,7 @@ var validator = function validator(value) {
   var valid = true;
   // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
   keys.forEach(function (key) {
-    if (!["span", "offset"].includes(key)) {
+    if (!(["span", "offset"].indexOf(key) >= 0)) {
       valid = false;
     }
   });
@@ -13327,6 +13327,10 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 //
 //
 //
@@ -13370,6 +13374,19 @@ var _default2 = {
     enableHtml: {
       type: Boolean,
       default: false
+    },
+    position: {
+      type: String,
+      default: "top",
+      validator: function validator(value) {
+        // console.log(["top", "bottom", "middle"].indexOf(value) >= 0);
+        return ["top", "bottom", "middle"].indexOf(value) >= 0;
+      }
+    }
+  },
+  computed: {
+    toastClasses: function toastClasses() {
+      return _defineProperty({}, "position-".concat(this.position), true);
     }
   },
   mounted: function mounted() {
@@ -13417,28 +13434,34 @@ exports.default = _default2;
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "wrapper", staticClass: "toast" }, [
-    _c(
-      "div",
-      { staticClass: "message" },
-      [
-        !_vm.enableHtml
-          ? _vm._t("default")
-          : _c("div", {
-              domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
-            }),
-      ],
-      2
-    ),
-    _vm._v(" "),
-    _c("div", { ref: "line", staticClass: "line" }),
-    _vm._v(" "),
-    _vm.closeButton
-      ? _c("span", { staticClass: "close", on: { click: _vm.onClickClose } }, [
-          _vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  "),
-        ])
-      : _vm._e(),
-  ])
+  return _c(
+    "div",
+    { ref: "wrapper", staticClass: "toast", class: _vm.toastClasses },
+    [
+      _c(
+        "div",
+        { staticClass: "message" },
+        [
+          !_vm.enableHtml
+            ? _vm._t("default")
+            : _c("div", {
+                domProps: { innerHTML: _vm._s(_vm.$slots.default[0]) },
+              }),
+        ],
+        2
+      ),
+      _vm._v(" "),
+      _c("div", { ref: "line", staticClass: "line" }),
+      _vm._v(" "),
+      _vm.closeButton
+        ? _c(
+            "span",
+            { staticClass: "close", on: { click: _vm.onClickClose } },
+            [_vm._v("\n    " + _vm._s(_vm.closeButton.text) + "\n  ")]
+          )
+        : _vm._e(),
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -13489,6 +13512,7 @@ var _default = {
       var Constructor = Vue.extend(_toast.default);
       var toast = new Constructor({
         propsData: {
+          position: toastOption.position,
           closeButton: toastOption.closeButton
         }
       });
@@ -13542,6 +13566,7 @@ new _vue.default({
     },
     showToast: function showToast() {
       this.$toast("我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立", {
+        position: "middle",
         closeButton: {
           text: "关闭",
           callback: function callback() {

@@ -10,7 +10,7 @@ let validator = (value) => {
   let valid = true;
   // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
   keys.forEach((key) => {
-    if (!["span", "offset"].includes(key)) {
+    if (!(["span", "offset"].indexOf(key) >= 0)) {
       valid = false;
     }
   });

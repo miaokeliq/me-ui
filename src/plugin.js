@@ -6,6 +6,7 @@ export default {
       let Constructor = Vue.extend(Toast);
       let toast = new Constructor({
         propsData: {
+          position: toastOption.position,
           closeButton: toastOption.closeButton,
         },
       });

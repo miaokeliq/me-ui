@@ -15,7 +15,7 @@ export default {
       type: String,
       validator(value) {
         // 如果包含 就返回 true， 就合法
-        return ["left", "right", "center"].includes(value);
+        return ["left", "right", "center"].indexOf(value) >= 0;
       },
     },
   },

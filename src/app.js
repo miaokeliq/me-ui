@@ -39,6 +39,7 @@ new Vue({
       this.$toast(
         "我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立",
         {
+          position: "middle",
           closeButton: {
             text: "关闭",
             callback() {
