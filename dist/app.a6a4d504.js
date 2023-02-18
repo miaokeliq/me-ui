@@ -13411,6 +13411,7 @@ var _default2 = {
     },
     close: function close() {
       this.$el.remove(); // 把元素从body里面拿出来
+      this.$emit("close");
       this.$destroy();
     },
     onClickClose: function onClickClose() {
@@ -13515,7 +13516,10 @@ var _default = {
       currentToast = createToast({
         Vue: Vue,
         message: message,
-        propsData: toastOptions
+        propsData: toastOptions,
+        onClose: function onClose() {
+          currentToast = null;
+        }
       });
     };
   }
@@ -13527,7 +13531,8 @@ exports.default = _default;
 function createToast(_ref) {
   var Vue = _ref.Vue,
     message = _ref.message,
-    propsData = _ref.propsData;
+    propsData = _ref.propsData,
+    onClose = _ref.onClose;
   // 生成一个toast组件，然后放到body里面
   var Constructor = Vue.extend(_toast.default);
   var toast = new Constructor({
@@ -13535,6 +13540,7 @@ function createToast(_ref) {
   });
   toast.$slots.default = [message];
   toast.$mount();
+  toast.$on("close", onClose);
   document.body.appendChild(toast.$el);
   return toast;
 }
