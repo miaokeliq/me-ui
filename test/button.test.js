@@ -1,4 +1,4 @@
-const expert = chai.expect;
+const expect = chai.expect;
 import Vue from "vue";
 import Button from "../src/button";
 
