@@ -32,40 +32,32 @@ export default {
       type: Object,
       validator,
     },
-
     pc: {
       type: Object,
-      validator(value) {
-        let keys = Object.keys(value);
-        let valid = true;
-        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
-        keys.forEach((key) => {
-          if (!["span", "offset"].includes(key)) {
-            valid = false;
-          }
-        });
-        return valid;
-      },
+      validator,
     },
     widePc: {
       type: Object,
-      validator(value) {
-        let keys = Object.keys(value);
-        let valid = true;
-        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
-        keys.forEach((key) => {
-          if (!["span", "offset"].includes(key)) {
-            valid = false;
-          }
-        });
-        return valid;
-      },
+      validator,
     },
   },
   data() {
     return {
       gutter: 0,
     };
+  },
+  methods: {
+    createClasses(obj, str = "") {
+      if (!obj) return [];
+      let array = [];
+      if (obj.span) {
+        array.push(`col-${str}${obj.span}`);
+      }
+      if (obj.offset) {
+        array.push(`offset-${str}${obj.offset}`);
+      }
+      return array;
+    },
   },
   computed: {
     colStyle() {
@@ -76,13 +68,14 @@ export default {
     },
     colClass() {
       let { span, offset, pad, narrowPc, pc, widePc } = this;
+      let createClasses = this.createClasses;
       return [
-        span && `col-${span}`,
-        offset && `offset-${offset}`,
-        ...(pad ? [`col-pad-${pad.span}`] : []),
-        ...(narrowPc ? [`col-narrow-pc-${narrowPc.span}`] : []),
-        ...(pc ? [`col-pc-${pc.span}`] : []),
-        ...(widePc ? [`col-wide-pc-${widePc.span}`] : []),
+        ...createClasses({ span, offset }),
+        ...createClasses(pad, "pad-"),
+        ...createClasses(narrowPc, "narrow-pc-"),
+        ...createClasses(pc, "pc-"),
+        ...createClasses(pad, "pad-"),
+        ...createClasses(widePc, "wide-pc-"),
       ];
     },
   },

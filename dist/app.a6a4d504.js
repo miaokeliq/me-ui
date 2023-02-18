@@ -12853,37 +12853,31 @@ var _default = {
     },
     pc: {
       type: Object,
-      validator: function validator(value) {
-        var keys = Object.keys(value);
-        var valid = true;
-        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
-        keys.forEach(function (key) {
-          if (!["span", "offset"].includes(key)) {
-            valid = false;
-          }
-        });
-        return valid;
-      }
+      validator: validator
     },
     widePc: {
       type: Object,
-      validator: function validator(value) {
-        var keys = Object.keys(value);
-        var valid = true;
-        // 查找数组里是否包含另一个数组里所有的元素的算法，在这里不用优化也可以，因为数组的值没多少
-        keys.forEach(function (key) {
-          if (!["span", "offset"].includes(key)) {
-            valid = false;
-          }
-        });
-        return valid;
-      }
+      validator: validator
     }
   },
   data: function data() {
     return {
       gutter: 0
     };
+  },
+  methods: {
+    createClasses: function createClasses(obj) {
+      var str = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : "";
+      if (!obj) return [];
+      var array = [];
+      if (obj.span) {
+        array.push("col-".concat(str).concat(obj.span));
+      }
+      if (obj.offset) {
+        array.push("offset-".concat(str).concat(obj.offset));
+      }
+      return array;
+    }
   },
   computed: {
     colStyle: function colStyle() {
@@ -12899,7 +12893,11 @@ var _default = {
         narrowPc = this.narrowPc,
         pc = this.pc,
         widePc = this.widePc;
-      return [span && "col-".concat(span), offset && "offset-".concat(offset)].concat(_toConsumableArray(pad ? ["col-pad-".concat(pad.span)] : []), _toConsumableArray(narrowPc ? ["col-narrow-pc-".concat(narrowPc.span)] : []), _toConsumableArray(pc ? ["col-pc-".concat(pc.span)] : []), _toConsumableArray(widePc ? ["col-wide-pc-".concat(widePc.span)] : []));
+      var createClasses = this.createClasses;
+      return [].concat(_toConsumableArray(createClasses({
+        span: span,
+        offset: offset
+      })), _toConsumableArray(createClasses(pad, "pad-")), _toConsumableArray(createClasses(narrowPc, "narrow-pc-")), _toConsumableArray(createClasses(pc, "pc-")), _toConsumableArray(createClasses(pad, "pad-")), _toConsumableArray(createClasses(widePc, "wide-pc-")));
     }
   }
 };
