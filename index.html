@@ -45,27 +45,22 @@
       }
     </style>
 
-    <style></style>
+    <style>
+      .demo {
+        border: 1px solid black;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
-      <m-row>
-        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
-          <div class="demo"></div>
-        </m-col>
-        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
-          <div class="demo"></div>
-        </m-col>
-        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
-          <div class="demo"></div>
-        </m-col>
-        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
-          <div class="demo"></div>
-        </m-col>
-        <m-col span="24" :pad="{span:12}" :narrow-pc="{span:8}">
-          <div class="demo"></div>
-        </m-col>
-      </m-row>
+      <m-layout style="height: 100vh">
+        <m-header class="demo">header</m-header>
+        <m-layout>
+          <m-sider class="demo">sider</m-sider>
+          <m-content class="demo">content</m-content>
+        </m-layout>
+        <m-footer class="demo">footer</m-footer>
+      </m-layout>
     </div>
 
     <script src="./src/app.js"></script>

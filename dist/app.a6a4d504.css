@@ -862,3 +862,15 @@
     margin-left: 100%;
 }
 }
+.layout[data-v-c99d9e] {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  flex-grow: 1;
+}
+.layout.hasSider[data-v-c99d9e] {
+  flex-direction: row;
+}
+.content[data-v-1f38ba] {
+  flex-grow: 1;
+}
