@@ -13346,7 +13346,7 @@ function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input ==
 //
 //
 //
-// 写轮子要考虑一个问题： 小概率事件必将发生
+//  写轮子要考虑一个问题： 小概率事件必将发生
 /* import Vue from "vue";
 Vue.prototype.$toast = function () {
   // 侵入性太强，不好
@@ -13357,12 +13357,11 @@ var _default2 = {
   name: "MeToast",
   props: {
     autoClose: {
-      type: Boolean,
-      default: true
-    },
-    autoCloseDelay: {
-      type: Number,
-      default: 50
+      type: [Boolean, Number],
+      default: 5,
+      validator: function validator(value) {
+        return value === false || typeof value === "number";
+      }
     },
     closeButton: {
       type: Object,
@@ -13401,7 +13400,7 @@ var _default2 = {
       if (this.autoClose) {
         setTimeout(function () {
           _this.close();
-        }, this.autoCloseDelay * 1000);
+        }, this.autoClose * 1000);
       }
     },
     updateStyles: function updateStyles() {
@@ -13623,7 +13622,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61705" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49237" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
