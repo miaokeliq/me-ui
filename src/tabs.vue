@@ -34,21 +34,12 @@ export default {
   mounted() {
     this.$children.forEach((vm) => {
       if (vm.$options.name === "MeTabsHead") {
-<<<<<<< HEAD
         vm.$children.forEach((childVm) => {
           if (
             childVm.$options.name === "MeTabsItem" &&
             childVm.name === this.selected
           ) {
             this.eventBus.$emit("update:selected", this.selected, childVm);
-=======
-        vm.$children.forEach((item) => {
-          if (
-            item.$options.name === "MeTabsItem" &&
-            item.name === this.selected
-          ) {
-            this.eventBus.$emit("update:selected", this.selected, item);
->>>>>>> f69c9aad0a3ec7527b4c17a342be5edf1c26cce7
           }
         });
       }

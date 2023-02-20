@@ -12,10 +12,14 @@
 export default {
   name: "MeTabsHead",
   inject: ["eventBus"],
-  created() {
+  data() {
+    return {};
+  },
+  mounted() {
     this.eventBus.$on("update:selected", (item, vm) => {
-      console.log(item);
-      console.log(vm);
+      let { width, height, top, left } = vm.$el.getBoundingClientRect();
+      this.$refs.line.style.width = `${width}px`;
+      this.$refs.line.style.left = `${left}px`;
     });
   },
 };
@@ -28,14 +32,12 @@ $blue: blue;
   display: flex;
   height: $tab-height;
   justify-content: flex-start;
-  align-items: center;
-  border: 1px solid red;
   position: relative;
   > .line {
     position: absolute;
     bottom: 0;
     border-bottom: 1px solid $blue;
-    width: 100px;
+    transition: all 350ms;
   }
   > .actions-wrapper {
     margin-left: auto;

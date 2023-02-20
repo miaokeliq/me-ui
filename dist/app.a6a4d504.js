@@ -13587,15 +13587,9 @@ var _default = {
     var _this = this;
     this.$children.forEach(function (vm) {
       if (vm.$options.name === "MeTabsHead") {
-<<<<<<< HEAD
         vm.$children.forEach(function (childVm) {
           if (childVm.$options.name === "MeTabsItem" && childVm.name === _this.selected) {
             _this.eventBus.$emit("update:selected", _this.selected, childVm);
-=======
-        vm.$children.forEach(function (item) {
-          if (item.$options.name === "MeTabsItem" && item.name === _this.selected) {
-            _this.eventBus.$emit("update:selected", _this.selected, item);
->>>>>>> f69c9aad0a3ec7527b4c17a342be5edf1c26cce7
           }
         });
       }
@@ -13670,10 +13664,19 @@ exports.default = void 0;
 var _default = {
   name: "MeTabsHead",
   inject: ["eventBus"],
-  created: function created() {
+  data: function data() {
+    return {};
+  },
+  mounted: function mounted() {
+    var _this = this;
     this.eventBus.$on("update:selected", function (item, vm) {
-      console.log(item);
-      console.log(vm);
+      var _vm$$el$getBoundingCl = vm.$el.getBoundingClientRect(),
+        width = _vm$$el$getBoundingCl.width,
+        height = _vm$$el$getBoundingCl.height,
+        top = _vm$$el$getBoundingCl.top,
+        left = _vm$$el$getBoundingCl.left;
+      _this.$refs.line.style.width = "".concat(width, "px");
+      _this.$refs.line.style.left = "".concat(left, "px");
     });
   }
 };
@@ -13841,13 +13844,13 @@ var _default = {
   },
   created: function created() {
     var _this = this;
-    this.eventBus.$on("update:selected", function (name) {
+    this.eventBus.$on("update:selected", function (name, vm) {
       _this.active = name === _this.name;
     });
   },
   methods: {
     xxx: function xxx() {
-      this.eventBus.$emit("update:selected", this.name);
+      this.eventBus.$emit("update:selected", this.name, this);
     }
   }
 };
@@ -13933,7 +13936,7 @@ var _default = {
   },
   created: function created() {
     var _this = this;
-    this.eventBus.$on("update:selected", function (name) {
+    this.eventBus.$on("update:selected", function (name, vm) {
       _this.active = name === _this.name;
     });
   },
