@@ -972,15 +972,20 @@
   height: 40px;
   justify-content: flex-start;
   position: relative;
+  border-bottom: 1px solid #ddd;
 }
 .tabs-head > .line[data-v-3b9a05] {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   border-bottom: 1px solid blue;
   transition: all 350ms;
 }
 .tabs-head > .actions-wrapper[data-v-3b9a05] {
   margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1em;
 }
 .tabs-item[data-v-f4d751] {
   padding: 0 2em;
@@ -993,6 +998,6 @@
 .tabs-item.active[data-v-f4d751] {
   color: blue;
 }
-.tabs-pane.active[data-v-f9cebf] {
-  background: red;
+.tabs-pane[data-v-f9cebf] {
+  padding: 1em;
 }

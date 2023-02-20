@@ -36,8 +36,8 @@ export default {
 
 <style scoped lang="scss">
 .tabs-pane {
+  padding: 1em;
   &.active {
-    background: red;
   }
 }
 </style>
