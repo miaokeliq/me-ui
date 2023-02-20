@@ -39,7 +39,24 @@
   </head>
   <body>
     <div id="app">
-      <m-button icon="left" @click="showToast">按钮</m-button>
+      <m-tabs :selected.sync="selectedTab" >
+      <m-tabs selected="selectedTab" @update:selected="selectedTab = $event">
+        <m-tabs-head>
+            <template slot="actions">
+              <m-button>设置</m-button>
+            </template>
+          <m-tabs-item name="woman">
+            <m-icon name="left"></m-icon>
+              美女</m-tabs-item>
+          <m-tabs-item name="finance" disabled>财经</m-tabs-item>
+          <m-tabs-item name="sports">体育</m-tabs-item>
+        </m-tabs-head>
+        <m-tabs-body>
+          <m-tabs-pane name="woman">美女相关咨询</m-tabs-pane>
+          <m-tabs-pane name="finance">财经相关咨询</m-tabs-pane>
+          <m-tabs-pane name="sports">体育相关咨询</m-tabs-pane>
+        </m-tabs-body>
+      </m-tabs>
     </div>
 
     <script src="./src/app.js"></script>
