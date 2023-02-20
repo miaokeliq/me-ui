@@ -1000,6 +1000,7 @@
 }
 .tabs-item.disabled[data-v-f4d751] {
   color: grey;
+  cursor: not-allowed;
 }
 .tabs-pane[data-v-f9cebf] {
   padding: 1em;
