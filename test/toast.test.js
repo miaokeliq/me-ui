@@ -4,7 +4,6 @@ import Toast from "../src/toast.vue";
 
 Vue.config.productionTip = false;
 Vue.config.devtools = false;
-
 describe("Toast", () => {
   // BDD 行为驱动测试 Mocha
 
@@ -27,7 +26,7 @@ describe("Toast", () => {
         done();
       });
     });
-    it("接收 closeButton", () => {
+    it("接收 closeButton", (done) => {
       const callback = sinon.fake();
       const Constructor = Vue.extend(Toast);
       const vm = new Constructor({
@@ -41,8 +40,12 @@ describe("Toast", () => {
       let closeButton = vm.$el.querySelector(".close");
       // trim() 去除字符串的头尾空格
       expect(closeButton.textContent.trim()).to.eq("关闭吧");
-      closeButton.click();
-      expect(callback).to.have.been.called;
+      // 因为在  nexttick之前点击toast就没了，就会报错style，所以需要在nexttick之后再点击，就settimeout来模拟人来点击，这样就不会这么快地点击了
+      setTimeout(() => {
+        closeButton.click();
+        expect(callback).to.have.been.called;
+        done();
+      }, 200);
     });
 
     it("接收 enableHtml", () => {

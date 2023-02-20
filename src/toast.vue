@@ -89,7 +89,7 @@ export default {
     onClickClose() {
       this.close();
       if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback();
+        this.closeButton.callback(this); // this === toast驶实例子
       }
     },
   },

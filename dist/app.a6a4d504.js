@@ -13418,7 +13418,7 @@ var _default2 = {
     onClickClose: function onClickClose() {
       this.close();
       if (this.closeButton && typeof this.closeButton.callback === "function") {
-        this.closeButton.callback();
+        this.closeButton.callback(this); // this === toast驶实例子
       }
     }
   }
@@ -13622,7 +13622,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49237" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51175" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
