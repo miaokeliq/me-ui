@@ -13587,9 +13587,15 @@ var _default = {
     var _this = this;
     this.$children.forEach(function (vm) {
       if (vm.$options.name === "MeTabsHead") {
+<<<<<<< HEAD
         vm.$children.forEach(function (childVm) {
           if (childVm.$options.name === "MeTabsItem" && childVm.name === _this.selected) {
             _this.eventBus.$emit("update:selected", _this.selected, childVm);
+=======
+        vm.$children.forEach(function (item) {
+          if (item.$options.name === "MeTabsItem" && item.name === _this.selected) {
+            _this.eventBus.$emit("update:selected", _this.selected, item);
+>>>>>>> f69c9aad0a3ec7527b4c17a342be5edf1c26cce7
           }
         });
       }
