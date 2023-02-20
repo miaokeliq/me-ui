@@ -980,6 +980,11 @@
 .tabs-item[data-v-f4d751] {
   padding: 0 2em;
   flex-shrink: 0;
+  cursor: pointer;
+  border: 1px solid green;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 .tabs-item.active[data-v-f4d751] {
   background: red;
