@@ -36,11 +36,9 @@ Vue.use(plugin); // 掉用 plugin 里面的install方法
 new Vue({
   el: "#app",
   data: {
-    loading1: false,
-    loading2: true,
-    loading3: true,
-    message: "1",
+    selectedTab: "sports",
   },
+
   methods: {
     inputChange(e) {
       console.log(e.target.value);

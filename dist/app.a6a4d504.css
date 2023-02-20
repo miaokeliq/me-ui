@@ -967,3 +967,23 @@
 .toast .message[data-v-49b4bb] {
   padding: 8px 0;
 }
+.tabs-head[data-v-3b9a05] {
+  display: flex;
+  height: 40px;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid red;
+}
+.tabs-head > .actions-wrapper[data-v-3b9a05] {
+  margin-left: auto;
+}
+.tabs-item[data-v-f4d751] {
+  padding: 0 2em;
+  flex-shrink: 0;
+}
+.tabs-item.active[data-v-f4d751] {
+  background: red;
+}
+.tabs-pane.active[data-v-f9cebf] {
+  background: red;
+}

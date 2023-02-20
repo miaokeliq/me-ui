@@ -39,15 +39,16 @@
   </head>
   <body>
     <div id="app">
-      <m-tabs :selected.sync="selectedTab" >
-      <m-tabs selected="selectedTab" @update:selected="selectedTab = $event">
+      <m-tabs :selected.sync="selectedTab">
+        <!-- <m-tabs selected="selectedTab" @update:selected="selectedTab = $event"> -->
         <m-tabs-head>
-            <template slot="actions">
-              <m-button>设置</m-button>
-            </template>
+          <template slot="actions">
+            <m-button>设置</m-button>
+          </template>
           <m-tabs-item name="woman">
             <m-icon name="left"></m-icon>
-              美女</m-tabs-item>
+            美女</m-tabs-item
+          >
           <m-tabs-item name="finance" disabled>财经</m-tabs-item>
           <m-tabs-item name="sports">体育</m-tabs-item>
         </m-tabs-head>

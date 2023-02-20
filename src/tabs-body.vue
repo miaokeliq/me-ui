@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "MeTabsBody",
+  inject: ["eventBus"],
 };
 </script>
 
