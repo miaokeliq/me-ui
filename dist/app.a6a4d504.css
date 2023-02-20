@@ -973,6 +973,13 @@
   justify-content: flex-start;
   align-items: center;
   border: 1px solid red;
+  position: relative;
+}
+.tabs-head > .line[data-v-3b9a05] {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid blue;
+  width: 100px;
 }
 .tabs-head > .actions-wrapper[data-v-3b9a05] {
   margin-left: auto;
@@ -981,13 +988,12 @@
   padding: 0 2em;
   flex-shrink: 0;
   cursor: pointer;
-  border: 1px solid green;
   height: 100%;
   display: flex;
   align-items: center;
 }
 .tabs-item.active[data-v-f4d751] {
-  background: red;
+  color: blue;
 }
 .tabs-pane.active[data-v-f9cebf] {
   background: red;
