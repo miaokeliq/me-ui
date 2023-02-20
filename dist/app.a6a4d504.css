@@ -998,6 +998,9 @@
 .tabs-item.active[data-v-f4d751] {
   color: blue;
 }
+.tabs-item.disabled[data-v-f4d751] {
+  color: grey;
+}
 .tabs-pane[data-v-f9cebf] {
   padding: 1em;
 }
