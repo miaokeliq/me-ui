@@ -13587,9 +13587,9 @@ var _default = {
     var _this = this;
     this.$children.forEach(function (vm) {
       if (vm.$options.name === "MeTabsHead") {
-        vm.$children.forEach(function (item) {
-          if (item.$options.name === "MeTabsItem" && item.name === _this.selected) {
-            _this.eventBus.$emit("update:selected", _this.selected, item);
+        vm.$children.forEach(function (childVm) {
+          if (childVm.$options.name === "MeTabsItem" && childVm.name === _this.selected) {
+            _this.eventBus.$emit("update:selected", _this.selected, childVm);
           }
         });
       }
