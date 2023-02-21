@@ -1012,7 +1012,31 @@
 }
 .content-wrapper[data-v-514664] {
   position: absolute;
-  border: 1px solid red;
+  border: 1px solid #333;
+  border-radius: 4px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
   transform: translateY(-100%);
+  margin-top: -10px;
+  padding: 0.5em 1em;
+  max-width: 20em;
+  word-break: break-all;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.5));
+  background: white;
+}
+.content-wrapper[data-v-514664]::before, .content-wrapper[data-v-514664]::after {
+  content: "";
+  display: block;
+  border: 10px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: 10px;
+}
+.content-wrapper[data-v-514664]::before {
+  border-top-color: black;
+  top: 100%;
+}
+.content-wrapper[data-v-514664]::after {
+  border-top-color: white;
+  top: calc(100% - 1px);
 }
