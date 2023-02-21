@@ -14085,24 +14085,33 @@ var _default = {
         left = _triggerWrapper$getBo.left,
         height = _triggerWrapper$getBo.height,
         width = _triggerWrapper$getBo.width;
+      var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+        height2 = _contentWrapper$getBo.height;
+      /*
+        代码优化：表驱动编程
+      */
+      var positions = {
+        top: {
+          top: top + window.scrollY,
+          left: left + window.scrollX
+        },
+        bottom: {
+          top: top + height + window.scrollY,
+          left: left + window.scrollX
+        },
+        left: {
+          top: top - window.scrollY + (height - height2) / 2,
+          left: left + window.scrollX
+        },
+        right: {
+          top: top - window.scrollY + (height - height2) / 2,
+          left: left + width + window.scrollX
+        }
+      };
+
       // 根据positon调整样式
-      if (this.position === "top") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + window.scrollY + "px";
-      } else if (this.position === "bottom") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        contentWrapper.style.top = top + height + window.scrollY + "px";
-      } else if (this.position === "left") {
-        contentWrapper.style.left = left + window.scrollX + "px";
-        var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
-          height2 = _contentWrapper$getBo.height;
-        contentWrapper.style.top = top - window.scrollY + (height - height2) / 2 + "px";
-      } else if (this.position === "right") {
-        contentWrapper.style.left = left + width + window.scrollX + "px";
-        var _contentWrapper$getBo2 = contentWrapper.getBoundingClientRect(),
-          _height = _contentWrapper$getBo2.height;
-        contentWrapper.style.top = top - window.scrollY + (height - _height) / 2 + "px";
-      }
+      contentWrapper.style.left = positions[this.position].left + "px";
+      contentWrapper.style.top = positions[this.position].top + "px";
     },
     onClickDocument: function onClickDocument(e) {
       // 如果点击的是popover外的地方，就关闭，如果点击的popover，就不用管
