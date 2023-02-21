@@ -45,4 +45,6 @@ describe("TabsItem", () => {
     vm.$el.click();
     expect(callback).to.have.not.been.called;
   });
+
+  // 测试覆盖率
 });
