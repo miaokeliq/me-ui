@@ -46,6 +46,9 @@ new Vue({
     inputChange(e) {
       console.log(e.target.value);
     },
+    xx() {
+      console.log("yyy");
+    },
     showToast() {
       this.$toast(
         "我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立",

@@ -21,7 +21,7 @@ describe("Tabs", () => {
     expect(Tabs).to.be.ok;
   });
 
-  it("接收  selected prop", (done) => {
+  it("接收 selected prop", (done) => {
     const div = document.createElement("div");
     document.body.appendChild(div);
     div.innerHTML = `
