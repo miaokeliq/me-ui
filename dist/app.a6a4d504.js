@@ -14279,6 +14279,9 @@ var _default = {
     single: {
       type: Boolean,
       default: false
+    },
+    selected: {
+      type: String
     }
   },
   data: function data() {
@@ -14287,11 +14290,12 @@ var _default = {
     };
   },
   provide: function provide() {
-    if (this.single) {
-      return {
-        eventBus: this.eventBus
-      };
-    }
+    return {
+      eventBus: this.eventBus
+    };
+  },
+  mounted: function mounted() {
+    this.eventBus.$emit("update:selected", this.selected);
   }
 };
 exports.default = _default;
@@ -14361,8 +14365,14 @@ exports.default = void 0;
 var _default = {
   name: "MeCollapseItem",
   props: {
-    title: String,
-    required: true
+    title: {
+      String: String,
+      required: true
+    },
+    name: {
+      type: String,
+      required: true
+    }
   },
   inject: ["eventBus"],
   data: function data() {
@@ -14372,9 +14382,11 @@ var _default = {
   },
   mounted: function mounted() {
     var _this = this;
-    this.eventBus && this.eventBus.$on("update:selected", function (vm) {
-      if (vm !== _this) {
+    this.eventBus && this.eventBus.$on("update:selected", function (name) {
+      if (name !== _this.name) {
         _this.close();
+      } else {
+        _this.show();
       }
     });
   },
@@ -14386,9 +14398,11 @@ var _default = {
       if (this.open) {
         this.open = false;
       } else {
-        this.open = true;
-        this.eventBus && this.eventBus.$emit("update:selected", this);
+        this.eventBus && this.eventBus.$emit("update:selected", this.name);
       }
+    },
+    show: function show() {
+      this.open = true;
     }
   }
 };
