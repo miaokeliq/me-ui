@@ -14295,7 +14295,11 @@ var _default = {
     };
   },
   mounted: function mounted() {
+    var _this = this;
     this.eventBus.$emit("update:selected", this.selected);
+    this.eventBus.$on("update:selected", function (name) {
+      _this.$emit("update:selected", name);
+    });
   }
 };
 exports.default = _default;
@@ -14510,7 +14514,7 @@ _vue.default.use(_plugin.default); // 掉用 plugin 里面的install方法
 new _vue.default({
   el: "#app",
   data: {
-    selectedTab: "sports"
+    selectedTab: "2"
   },
   methods: {
     inputChange: function inputChange(e) {
