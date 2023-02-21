@@ -14044,6 +14044,11 @@ exports.default = void 0;
 //
 //
 //
+//
+//
+//
+//
+//
 var _default = {
   name: "MePopover",
   data: function data() {
@@ -14051,23 +14056,53 @@ var _default = {
       visible: false
     };
   },
+  props: {
+    position: {
+      type: String,
+      default: "top",
+      validator: function validator(value) {
+        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
+      }
+    }
+  },
   methods: {
     /*
       总结遇到的三个bug
-      1. 父元素设置 overflow：hidden 会造成 popover 隐藏，于是把组件放到body里面 
+      1. 父元素设置 overflow：hidden 会造成 popover 隐藏，于是把组件放到body里面
         然后就会设置到是否加scrollX,scrollY 的问题。
       2. 关闭重复，点一次关闭，却被关闭了两次，解决方法：职责分开，document只管
         外面，popover只管里面，别交叉.
       3. 忘了取消监听document，visible改成false都要取消监听，因为之前代码结构不好，解决方法：将关于close的业务都收拢到一个函数里面 close()
     */
     positionContent: function positionContent() {
-      document.body.appendChild(this.$refs.contentWrapper);
+      var _this$$refs = this.$refs,
+        contentWrapper = _this$$refs.contentWrapper,
+        triggerWrapper = _this$$refs.triggerWrapper;
+      document.body.appendChild(contentWrapper);
       // getBoundingClientRect 是根据视图来得到的，还需要加上body的差值部分
-      var _this$$refs$triggerWr = this.$refs.triggerWrapper.getBoundingClientRect(),
-        top = _this$$refs$triggerWr.top,
-        left = _this$$refs$triggerWr.left;
-      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+      var _triggerWrapper$getBo = triggerWrapper.getBoundingClientRect(),
+        top = _triggerWrapper$getBo.top,
+        left = _triggerWrapper$getBo.left,
+        height = _triggerWrapper$getBo.height,
+        width = _triggerWrapper$getBo.width;
+      // 根据positon调整样式
+      if (this.position === "top") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        contentWrapper.style.top = top + window.scrollY + "px";
+      } else if (this.position === "bottom") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        contentWrapper.style.top = top + height + window.scrollY + "px";
+      } else if (this.position === "left") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        var _contentWrapper$getBo = contentWrapper.getBoundingClientRect(),
+          height2 = _contentWrapper$getBo.height;
+        contentWrapper.style.top = top - window.scrollY + (height - height2) / 2 + "px";
+      } else if (this.position === "right") {
+        contentWrapper.style.left = left + width + window.scrollX + "px";
+        var _contentWrapper$getBo2 = contentWrapper.getBoundingClientRect(),
+          _height = _contentWrapper$getBo2.height;
+        contentWrapper.style.top = top - window.scrollY + (height - _height) / 2 + "px";
+      }
     },
     onClickDocument: function onClickDocument(e) {
       // 如果点击的是popover外的地方，就关闭，如果点击的popover，就不用管
@@ -14115,6 +14150,7 @@ exports.default = _default;
         /* template */
         Object.assign($514664, (function () {
           var render = function () {
+  var _obj
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
@@ -14125,7 +14161,12 @@ exports.default = _default;
       _vm.visible
         ? _c(
             "div",
-            { ref: "contentWrapper", staticClass: "content-wrapper" },
+            {
+              ref: "contentWrapper",
+              staticClass: "content-wrapper",
+              class:
+                ((_obj = {}), (_obj["position-" + _vm.position] = true), _obj),
+            },
             [_vm._t("content")],
             2
           )

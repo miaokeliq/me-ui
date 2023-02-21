@@ -1,6 +1,11 @@
 <template>
   <div class="popover" ref="popover" @click="onClick">
-    <div ref="contentWrapper" class="content-wrapper" v-if="visible">
+    <div
+      ref="contentWrapper"
+      class="content-wrapper"
+      :class="{ [`position-${position}`]: true }"
+      v-if="visible"
+    >
       <slot name="content"></slot>
     </div>
     <span ref="triggerWrapper" style="display: inline-block">
@@ -17,21 +22,47 @@ export default {
       visible: false,
     };
   },
+  props: {
+    position: {
+      type: String,
+      default: "top",
+      validator(value) {
+        return ["top", "bottom", "left", "right"].indexOf(value) >= 0;
+      },
+    },
+  },
   methods: {
     /*
       总结遇到的三个bug
-      1. 父元素设置 overflow：hidden 会造成 popover 隐藏，于是把组件放到body里面 
+      1. 父元素设置 overflow：hidden 会造成 popover 隐藏，于是把组件放到body里面
         然后就会设置到是否加scrollX,scrollY 的问题。
       2. 关闭重复，点一次关闭，却被关闭了两次，解决方法：职责分开，document只管
         外面，popover只管里面，别交叉.
       3. 忘了取消监听document，visible改成false都要取消监听，因为之前代码结构不好，解决方法：将关于close的业务都收拢到一个函数里面 close()
     */
     positionContent() {
-      document.body.appendChild(this.$refs.contentWrapper);
+      const { contentWrapper, triggerWrapper } = this.$refs;
+      document.body.appendChild(contentWrapper);
       // getBoundingClientRect 是根据视图来得到的，还需要加上body的差值部分
-      let { top, left } = this.$refs.triggerWrapper.getBoundingClientRect();
-      this.$refs.contentWrapper.style.left = left + window.scrollX + "px";
-      this.$refs.contentWrapper.style.top = top + window.scrollY + "px";
+      let { top, left, height, width } = triggerWrapper.getBoundingClientRect();
+      // 根据positon调整样式
+      if (this.position === "top") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        contentWrapper.style.top = top + window.scrollY + "px";
+      } else if (this.position === "bottom") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        contentWrapper.style.top = top + height + window.scrollY + "px";
+      } else if (this.position === "left") {
+        contentWrapper.style.left = left + window.scrollX + "px";
+        let { height: height2 } = contentWrapper.getBoundingClientRect();
+        contentWrapper.style.top =
+          top - window.scrollY + (height - height2) / 2 + "px";
+      } else if (this.position === "right") {
+        contentWrapper.style.left = left + width + window.scrollX + "px";
+        let { height: height2 } = contentWrapper.getBoundingClientRect();
+        contentWrapper.style.top =
+          top - window.scrollY + (height - height2) / 2 + "px";
+      }
     },
     onClickDocument(e) {
       // 如果点击的是popover外的地方，就关闭，如果点击的popover，就不用管
@@ -91,9 +122,6 @@ $border-radius: 4px;
   position: absolute;
   border: 1px solid $border-color;
   border-radius: $border-radius;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
-  transform: translateY(-100%);
-  margin-top: -10px;
   padding: 0.5em 1em;
   max-width: 20em;
   word-break: break-all;
@@ -107,16 +135,76 @@ $border-radius: 4px;
     width: 0;
     height: 0;
     position: absolute;
-    left: 10px;
   }
 
-  &::before {
-    border-top-color: black;
-    top: 100%;
+  &.position-top {
+    transform: translateY(-100%);
+    margin-top: -10px;
+    &::before,
+    &::after {
+      left: 10px;
+    }
+
+    &::before {
+      border-top-color: black;
+      top: 100%;
+    }
+    &::after {
+      border-top-color: white;
+      top: calc(100% - 1px);
+    }
   }
-  &::after {
-    border-top-color: white;
-    top: calc(100% - 1px);
+  &.position-bottom {
+    margin-top: 10px;
+    &::before,
+    &::after {
+      left: 10px;
+    }
+
+    &::before {
+      border-bottom-color: black;
+      bottom: 100%;
+    }
+    &::after {
+      border-bottom-color: white;
+      bottom: calc(100% - 1px);
+    }
+  }
+  &.position-left {
+    transform: translateX(-100%);
+    margin-left: -10px;
+    &::before,
+    &::after {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+
+    &::before {
+      border-left-color: black;
+      left: 100%;
+    }
+    &::after {
+      border-left-color: white;
+      left: calc(100% - 1px);
+    }
+  }
+
+  &.position-right {
+    margin-left: 10px;
+    &::before,
+    &::after {
+      transform: translateY(-50%);
+      top: 50%;
+    }
+
+    &::before {
+      border-right-color: black;
+      right: 100%;
+    }
+    &::after {
+      border-right-color: white;
+      right: calc(100% - 1px);
+    }
   }
 }
 </style>
