@@ -39,12 +39,14 @@
   </head>
   <body>
     <div id="app">
-      <m-popover>
-        <template slot="content">
-          <div>popover内容</div>
-        </template>
-        <m-button>点我</m-button>
-      </m-popover>
+      <div style="overflow: hidden; border: 1px solid green; padding: 5px">
+        <m-popover>
+          <template slot="content">
+            <div>popover内容</div>
+          </template>
+          <m-button>点我</m-button>
+        </m-popover>
+      </div>
     </div>
 
     <script src="./src/app.js"></script>
