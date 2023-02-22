@@ -14296,8 +14296,12 @@ var _default = {
   },
   mounted: function mounted() {
     var _this = this;
+    // 一开始通知所有儿子们，该选中的选中，  也就是一开始的出事状态
     this.eventBus.$emit("update:selected", this.selected);
+
+    // 通知儿子们该更新的更新，该移除的移除
     this.eventBus.$on("update:addSelected", function (name) {
+      // 深拷贝   因为不允许直接修改props
       var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
       if (_this.single) {
         selectedCopy = [name];
@@ -14570,7 +14574,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53019" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58990" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
