@@ -11,7 +11,7 @@
 export default {
   name: "MeCollapseItem",
   props: {
-    title: { String, required: true },
+    title: { type: String, required: true },
     name: {
       type: String,
       required: true,
@@ -25,27 +25,23 @@ export default {
   },
   mounted() {
     this.eventBus &&
-      this.eventBus.$on("update:selected", (name) => {
-        if (name !== this.name) {
-          this.close();
+      this.eventBus.$on("update:selected", (names) => {
+        if (names.indexOf(this.name) >= 0) {
+          this.open = true;
         } else {
-          this.show();
+          this.open = false;
         }
       });
   },
   methods: {
-    close() {
-      this.open = false;
-    },
     toggle() {
       if (this.open) {
-        this.open = false;
+        this.eventBus &&
+          this.eventBus.$emit("update:removeSelected", this.name);
       } else {
-        this.eventBus && this.eventBus.$emit("update:selected", this.name);
+        console.log("111");
+        this.eventBus && this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
-    show() {
-      this.open = true;
     },
   },
 };

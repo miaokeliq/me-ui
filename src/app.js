@@ -43,7 +43,7 @@ Vue.use(plugin); // 掉用 plugin 里面的install方法
 new Vue({
   el: "#app",
   data: {
-    selectedTab: "2",
+    selectedTab: ["2"],
   },
 
   methods: {

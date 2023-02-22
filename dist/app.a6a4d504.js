@@ -14281,7 +14281,7 @@ var _default = {
       default: false
     },
     selected: {
-      type: String
+      type: Array
     }
   },
   data: function data() {
@@ -14297,8 +14297,22 @@ var _default = {
   mounted: function mounted() {
     var _this = this;
     this.eventBus.$emit("update:selected", this.selected);
-    this.eventBus.$on("update:selected", function (name) {
-      _this.$emit("update:selected", name);
+    this.eventBus.$on("update:addSelected", function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+      if (_this.single) {
+        selectedCopy = [name];
+      } else {
+        selectedCopy.push(name);
+      }
+      _this.eventBus.$emit("update:selected", selectedCopy);
+      _this.$emit("update:selected", selectedCopy);
+    });
+    this.eventBus.$on("update:removeSelected", function (name) {
+      var selectedCopy = JSON.parse(JSON.stringify(_this.selected));
+      var index = _this.selected.indexOf(name);
+      selectedCopy.splice(index, 1);
+      _this.eventBus.$emit("update:selected", selectedCopy);
+      _this.$emit("update:selected", selectedCopy);
     });
   }
 };
@@ -14370,7 +14384,7 @@ var _default = {
   name: "MeCollapseItem",
   props: {
     title: {
-      String: String,
+      type: String,
       required: true
     },
     name: {
@@ -14386,27 +14400,22 @@ var _default = {
   },
   mounted: function mounted() {
     var _this = this;
-    this.eventBus && this.eventBus.$on("update:selected", function (name) {
-      if (name !== _this.name) {
-        _this.close();
+    this.eventBus && this.eventBus.$on("update:selected", function (names) {
+      if (names.indexOf(_this.name) >= 0) {
+        _this.open = true;
       } else {
-        _this.show();
+        _this.open = false;
       }
     });
   },
   methods: {
-    close: function close() {
-      this.open = false;
-    },
     toggle: function toggle() {
       if (this.open) {
-        this.open = false;
+        this.eventBus && this.eventBus.$emit("update:removeSelected", this.name);
       } else {
-        this.eventBus && this.eventBus.$emit("update:selected", this.name);
+        console.log("111");
+        this.eventBus && this.eventBus.$emit("update:addSelected", this.name);
       }
-    },
-    show: function show() {
-      this.open = true;
     }
   }
 };
@@ -14514,7 +14523,7 @@ _vue.default.use(_plugin.default); // 掉用 plugin 里面的install方法
 new _vue.default({
   el: "#app",
   data: {
-    selectedTab: "2"
+    selectedTab: ["2"]
   },
   methods: {
     inputChange: function inputChange(e) {
