@@ -13685,7 +13685,7 @@ var _default = {
         top = _vm$$el$getBoundingCl.top,
         left = _vm$$el$getBoundingCl.left;
       _this.$refs.line.style.width = "".concat(width, "px");
-      _this.$refs.line.style.left = "".concat(left, "px");
+      _this.$refs.line.style.left = "".concat(vm.$el.offsetLeft, "px");
     });
   }
 };
@@ -14527,7 +14527,8 @@ _vue.default.use(_plugin.default); // 掉用 plugin 里面的install方法
 new _vue.default({
   el: "#app",
   data: {
-    selectedTab: ["2"]
+    selectedTab: ["2"],
+    selected: ""
   },
   methods: {
     inputChange: function inputChange(e) {
@@ -14537,8 +14538,8 @@ new _vue.default({
       console.log("yyy");
     },
     showToast: function showToast() {
-      this.$toast("我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立", {
-        position: "middle",
+      this.$toast("toast弹出", {
+        position: "bottom",
         closeButton: {
           text: "关闭",
           callback: function callback() {
@@ -14574,7 +14575,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58990" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56639" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

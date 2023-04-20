@@ -50,6 +50,19 @@
         <m-collapse-item title="标题3" name="3"> 内容3</m-collapse-item>
       </m-collapse>
       {{selectedTab}}
+
+      <m-tabs :selected="selected">
+        <m-tabs-head>
+          <m-tabs-item name="1">财经</m-tabs-item>
+          <m-tabs-item name="2">体育</m-tabs-item>
+        </m-tabs-head>
+        <m-tabs-body>
+          <m-tabs-pane name="1">财经内容</m-tabs-pane>
+          <m-tabs-pane name="2">体育内容</m-tabs-pane>
+        </m-tabs-body>
+      </m-tabs>
+
+      <m-button @click="showToast">点击显示</m-button>
     </div>
 
     <script src="/app.a6a4d504.js"></script>

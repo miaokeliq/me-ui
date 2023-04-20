@@ -22,8 +22,6 @@ export default {
     <m-button icon="settings">默认按钮</m-button>
     <m-button :loading="true">默认按钮</m-button>
     <m-button disabled>默认按钮</m-button>
-
-
 `,
     };
   },

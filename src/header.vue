@@ -8,7 +8,4 @@
 export default {};
 </script>
 
-<style scoped lang="scss">
-.header {
-}
-</style>
+<style scoped lang="scss"></style>

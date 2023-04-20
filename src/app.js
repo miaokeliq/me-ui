@@ -44,6 +44,7 @@ new Vue({
   el: "#app",
   data: {
     selectedTab: ["2"],
+    selected: "",
   },
 
   methods: {
@@ -54,18 +55,15 @@ new Vue({
       console.log("yyy");
     },
     showToast() {
-      this.$toast(
-        "我我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立是缪克我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立我是缪克立立",
-        {
-          position: "middle",
-          closeButton: {
-            text: "关闭",
-            callback() {
-              console.log("用户说他知道了");
-            },
+      this.$toast("toast弹出", {
+        position: "bottom",
+        closeButton: {
+          text: "关闭",
+          callback() {
+            console.log("用户说他知道了");
           },
-        }
-      );
+        },
+      });
     },
   },
 });

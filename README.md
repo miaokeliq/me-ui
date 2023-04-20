@@ -16,11 +16,11 @@
    * {
      box-sizing: border-box;
    }
-   
+
    *::before {
      box-sizing: border-box;
    }
-   
+
    *::after {
      box-sizing: border-box;
    }
@@ -43,7 +43,7 @@
    }
    ```
 
- IE 15 及以上浏览器都支持此样式
+IE 15 及以上浏览器都支持此样式
 
 2. 安装 me
 
@@ -53,7 +53,7 @@
 
 3. 引入 me
 
-   ```js
+   ```javascript
    import { Button, Icon, ButtonGroup } from "me-test-20230216";
    export default {
      name: "App",
